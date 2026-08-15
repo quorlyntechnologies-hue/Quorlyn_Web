@@ -1,26 +1,327 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   QUORLYN TECHNOLOGY — DESIGN SYSTEM
+   Derived from the brand mark: a geometric Q built from dissolving pixels,
+   rendered in a cyan → electric blue → violet transition on near-black.
+
+   Principles
+   1. Dark is the ground, not a theme. The mark only reads on near-black.
+   2. Gradient is an accent, never a surface. It marks brand moments:
+      the mark, hairlines, focus rings, the hero lattice. Never a page wash.
+   3. Hairlines over fills. Structure is drawn with 1px borders, not shadows.
+   4. Glow is earned. Reserved for the mark and primary interaction states.
+   5. Motion is precise: 150–300ms, cubic-bezier(.2,.8,.2,1), opacity+transform only.
+   ========================================================================== */
+
+@theme {
+  /* --- Base surfaces ---------------------------------------------------- */
+  --color-void: #05070b; /* page ground */
+  --color-surface: #0a0e15; /* cards, panels */
+  --color-elevated: #10151e; /* raised / hover surface */
+  --color-sunken: #03050899; /* insets, code, form fields */
+
+  /* --- Foreground ------------------------------------------------------- */
+  --color-fg: #e8edf5; /* 16.4:1 on void  — headings, body */
+  --color-muted: #9aa6b8; /*  8.3:1 on void  — supporting copy */
+  --color-subtle: #78859a; /*  5.5:1 on void  — labels, meta */
+
+  /* --- Lines ------------------------------------------------------------ */
+  --color-line: #ffffff12; /* default hairline */
+  --color-line-strong: #ffffff24; /* hover / active hairline */
+
+  /* --- Brand accents ----------------------------------------------------
+     Sampled directly from public/brand/quorlyn-logo.png, not chosen by eye.
+     Walking the monogram's ring from twelve o'clock gives #00CDFD → #00A6FC →
+     #1757FC → #863AFB, ending #B914FC at the stem tip.
+
+     These are markedly more saturated than the Tailwind sky/violet ramp they
+     replaced (#22D3EE / #38BDF8 / #4F7CF6 / #8B5CF6 / #C026D3), which read
+     green-shifted and washed out next to the real artwork. Do not "correct"
+     them back toward Tailwind defaults — re-sample the logo instead. */
+  --color-cyan: #00cdfd;
+  --color-azure: #00a6fc;
+  --color-blue: #1757fc;
+  --color-violet: #863afb;
+  --color-magenta: #b914fc;
+
+  /* The wordmark's own white, #F8F8F8 — neutral, unlike --color-fg, which is
+     tinted and slightly dimmed for comfortable long-form reading. Used only by
+     the QUORLYN lockup so it matches the artwork exactly. */
+  --color-brand-white: #f8f8f8;
+
+  /* Interactive accent. The logo cyan is bright enough to carry small text on
+     the void ground, so this is the sampled value rather than a lightened one. */
+  --color-accent: #00cdfd;
+  --color-danger: #ff6b6b;
+  --color-success: #4ade80;
+
+  /* --- Typography ------------------------------------------------------- */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Fluid type scale — 1.25 ratio, clamped so nothing shrinks below 16px body */
+  --text-display: clamp(2.75rem, 1.45rem + 5.6vw, 5.25rem);
+  --text-h1: clamp(2.25rem, 1.55rem + 3vw, 3.75rem);
+  --text-h2: clamp(1.75rem, 1.35rem + 1.7vw, 2.625rem);
+  --text-h3: clamp(1.3125rem, 1.2rem + 0.5vw, 1.625rem);
+  --text-h4: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-label: 0.75rem;
+
+  /* --- Radius — restrained. Nothing is a pill except tags. -------------- */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* --- Elevation — dark UI reads depth from light, not shadow ---------- */
+  --shadow-sm: 0 1px 2px #00000080;
+  --shadow-md: 0 8px 24px -8px #00000099;
+  --shadow-lg: 0 24px 64px -24px #000000cc;
+  /* Derived from the brand token rather than a pasted hex, so re-sampling the
+     logo updates every glow on the site. */
+  --shadow-glow:
+    0 0 0 1px color-mix(in srgb, var(--color-cyan) 18%, transparent),
+    0 0 32px -8px color-mix(in srgb, var(--color-cyan) 25%, transparent);
+  /* Process-timeline node: a void halo that punches through the rail, plus a
+     soft brand bloom. */
+  --shadow-node:
+    0 0 0 4px var(--color-void),
+    0 0 12px 2px color-mix(in srgb, var(--color-cyan) 35%, transparent);
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-precise: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+  --dur-slow: 320ms;
+
+  /* --- Breakpoints (mobile-first) --------------------------------------- */
+  --breakpoint-xs: 24rem; /* 384 — small phone */
+  --breakpoint-sm: 40rem; /* 640 — phone  */
+  --breakpoint-md: 48rem; /* 768 — tablet */
+  --breakpoint-lg: 64rem; /* 1024 — laptop */
+  --breakpoint-xl: 80rem; /* 1280 — desktop */
+  --breakpoint-2xl: 96rem; /* 1536 — large desktop */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Named gradients — the one place brand color is allowed to run. */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* The mark's gradient runs diagonally, cyan at the crown to magenta at the
+       stem tip. Flattened to ~100° here because this is used across short,
+       wide runs — headline words, hairlines — where a diagonal sweep would
+       compress into a vertical band. The stops are the mark's; the angle is
+       contextual. */
+    --gradient-brand: linear-gradient(
+      100deg,
+      var(--color-cyan) 0%,
+      var(--color-azure) 26%,
+      var(--color-blue) 54%,
+      var(--color-violet) 82%,
+      var(--color-magenta) 100%
+    );
+
+    /* The TECHNOLOGY subtitle in the artwork runs #2F4EF2 → #A225EF — a
+       tighter, deeper span than the full brand gradient. */
+    --gradient-subtitle: linear-gradient(90deg, #2f4ef2 0%, #a225ef 100%);
+
+    --gradient-hairline: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-cyan) 22%,
+      var(--color-violet) 78%,
+      transparent 100%
+    );
+    /* Content max width + gutter, referenced by <Container> */
+    --container-max: 78rem;
+    --gutter: 1.25rem;
+
+    color-scheme: dark;
+  }
+
+  @media (min-width: 48rem) {
+    :root {
+      --gutter: 2rem;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    :root {
+      --gutter: 2.5rem;
+    }
+  }
+
+  * {
+    border-color: var(--color-line);
+    min-width: 0; /* stops flex/grid children forcing horizontal overflow */
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* Sticky header clearance for in-page anchors */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-void);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip; /* belt-and-braces against horizontal scroll */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* One focus treatment for the whole site. Never removed, only restyled. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  ::selection {
+    background: var(--color-violet);
+    color: #fff;
+  }
+
+  /* Fields inherit the system rather than the UA stylesheet */
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Kill Chrome's yellow autofill wash on dark fields */
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-fg);
+    -webkit-box-shadow: 0 0 0 1000px var(--color-elevated) inset;
+    caret-color: var(--color-fg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Brand gradient as text. Falls back to solid fg where unsupported. */
+  .text-gradient-brand {
+    background-image: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* The lockup's TECHNOLOGY subtitle only. */
+  .text-gradient-subtitle {
+    background-image: var(--gradient-subtitle);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* 1px brand rule used to open sections */
+  .rule-brand {
+    height: 1px;
+    background-image: var(--gradient-hairline);
+  }
+
+  /* The pixel-dissolution motif, as a background. Used sparingly:
+     hero ground, CTA band, footer. Never on a card. */
+  .bg-lattice {
+    background-image:
+      linear-gradient(var(--color-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center;
+  }
+
+  /* Hairline-separated grid of panels.
+     Cells carry their own inset outline rather than the container showing
+     through 1px gaps — so a row that does not divide evenly leaves empty space,
+     not a stray lit rectangle where a panel should have been. */
+  .mosaic {
+    background-color: var(--color-void);
+  }
+
+  .mosaic > * {
+    outline: 1px solid var(--color-line);
+    outline-offset: -0.5px;
+  }
+
+  /* Soft brand bloom behind the closing CTA band. */
+  .bg-cta-bloom {
+    background-image: radial-gradient(
+      70% 100% at 50% 0%,
+      color-mix(in srgb, var(--color-cyan) 8%, transparent),
+      transparent 60%
+    );
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  }
+
+  .mask-fade-edges {
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  /* Scroll reveal — driven by IntersectionObserver in <Reveal>. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 620ms var(--ease-out-soft),
+      transform 620ms var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reduced motion: remove movement, keep all content visible and legible.
+   Nothing may depend on an animation completing to become readable. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
