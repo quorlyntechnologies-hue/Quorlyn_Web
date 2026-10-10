@@ -1,0 +1,642 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T14:48:29.295562Z",
+  "title": "Design System: Quorlyn Technology",
+  "extensions": {
+    "colorMeta": {
+      "void": {
+        "role": "neutral",
+        "displayName": "Void",
+        "tonalRamp": [
+          "oklch(15% 0.00396 106.47)",
+          "oklch(26% 0.00396 106.47)",
+          "oklch(38% 0.00396 106.47)",
+          "oklch(49% 0.00396 106.47)",
+          "oklch(61% 0.00396 106.47)",
+          "oklch(72% 0.00396 106.47)",
+          "oklch(84% 0.00396 106.47)",
+          "oklch(95% 0.00396 106.47)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "tonalRamp": [
+          "oklch(15% 0.00532 106.50)",
+          "oklch(26% 0.00532 106.50)",
+          "oklch(38% 0.00532 106.50)",
+          "oklch(49% 0.00532 106.50)",
+          "oklch(61% 0.00532 106.50)",
+          "oklch(72% 0.00532 106.50)",
+          "oklch(84% 0.00532 106.50)",
+          "oklch(95% 0.00532 106.50)"
+        ]
+      },
+      "elevated": {
+        "role": "neutral",
+        "displayName": "Elevated",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      },
+      "sunken": {
+        "role": "neutral",
+        "displayName": "Sunken",
+        "tonalRamp": [
+          "oklch(15% 0.00544 117.93)",
+          "oklch(26% 0.00544 117.93)",
+          "oklch(38% 0.00544 117.93)",
+          "oklch(49% 0.00544 117.93)",
+          "oklch(61% 0.00544 117.93)",
+          "oklch(72% 0.00544 117.93)",
+          "oklch(84% 0.00544 117.93)",
+          "oklch(95% 0.00544 117.93)"
+        ]
+      },
+      "fg": {
+        "role": "neutral",
+        "displayName": "Fg",
+        "tonalRamp": [
+          "oklch(15% 0.02397 248.84)",
+          "oklch(26% 0.02397 248.84)",
+          "oklch(38% 0.02397 248.84)",
+          "oklch(49% 0.02397 248.84)",
+          "oklch(61% 0.02397 248.84)",
+          "oklch(72% 0.02397 248.84)",
+          "oklch(84% 0.02397 248.84)",
+          "oklch(95% 0.02397 248.84)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.02600 250.49)",
+          "oklch(26% 0.02600 250.49)",
+          "oklch(38% 0.02600 250.49)",
+          "oklch(49% 0.02600 250.49)",
+          "oklch(61% 0.02600 250.49)",
+          "oklch(72% 0.02600 250.49)",
+          "oklch(84% 0.02600 250.49)",
+          "oklch(95% 0.02600 250.49)"
+        ]
+      },
+      "subtle": {
+        "role": "neutral",
+        "displayName": "Subtle",
+        "tonalRamp": [
+          "oklch(15% 0.02196 248.25)",
+          "oklch(26% 0.02196 248.25)",
+          "oklch(38% 0.02196 248.25)",
+          "oklch(49% 0.02196 248.25)",
+          "oklch(61% 0.02196 248.25)",
+          "oklch(72% 0.02196 248.25)",
+          "oklch(84% 0.02196 248.25)",
+          "oklch(95% 0.02196 248.25)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.02397 248.84)",
+          "oklch(26% 0.02397 248.84)",
+          "oklch(38% 0.02397 248.84)",
+          "oklch(49% 0.02397 248.84)",
+          "oklch(61% 0.02397 248.84)",
+          "oklch(72% 0.02397 248.84)",
+          "oklch(84% 0.02397 248.84)",
+          "oklch(95% 0.02397 248.84)"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Line Strong",
+        "tonalRamp": [
+          "oklch(15% 0.02397 248.84)",
+          "oklch(26% 0.02397 248.84)",
+          "oklch(38% 0.02397 248.84)",
+          "oklch(49% 0.02397 248.84)",
+          "oklch(61% 0.02397 248.84)",
+          "oklch(72% 0.02397 248.84)",
+          "oklch(84% 0.02397 248.84)",
+          "oklch(95% 0.02397 248.84)"
+        ]
+      },
+      "cyan": {
+        "role": "primary",
+        "displayName": "Cyan",
+        "tonalRamp": [
+          "oklch(15% 0.14624 222.71)",
+          "oklch(26% 0.14624 222.71)",
+          "oklch(38% 0.14624 222.71)",
+          "oklch(49% 0.14624 222.71)",
+          "oklch(61% 0.14624 222.71)",
+          "oklch(72% 0.14624 222.71)",
+          "oklch(84% 0.14624 222.71)",
+          "oklch(95% 0.14624 222.71)"
+        ]
+      },
+      "azure": {
+        "role": "primary",
+        "displayName": "Azure",
+        "tonalRamp": [
+          "oklch(15% 0.16810 242.90)",
+          "oklch(26% 0.16810 242.90)",
+          "oklch(38% 0.16810 242.90)",
+          "oklch(49% 0.16810 242.90)",
+          "oklch(61% 0.16810 242.90)",
+          "oklch(72% 0.16810 242.90)",
+          "oklch(84% 0.16810 242.90)",
+          "oklch(95% 0.16810 242.90)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Blue",
+        "tonalRamp": [
+          "oklch(15% 0.25185 263.67)",
+          "oklch(26% 0.25185 263.67)",
+          "oklch(38% 0.25185 263.67)",
+          "oklch(49% 0.25185 263.67)",
+          "oklch(61% 0.25185 263.67)",
+          "oklch(72% 0.25185 263.67)",
+          "oklch(84% 0.25185 263.67)",
+          "oklch(95% 0.25185 263.67)"
+        ]
+      },
+      "violet": {
+        "role": "primary",
+        "displayName": "Violet",
+        "tonalRamp": [
+          "oklch(15% 0.26128 294.14)",
+          "oklch(26% 0.26128 294.14)",
+          "oklch(38% 0.26128 294.14)",
+          "oklch(49% 0.26128 294.14)",
+          "oklch(61% 0.26128 294.14)",
+          "oklch(72% 0.26128 294.14)",
+          "oklch(84% 0.26128 294.14)",
+          "oklch(95% 0.26128 294.14)"
+        ]
+      },
+      "magenta": {
+        "role": "primary",
+        "displayName": "Magenta",
+        "tonalRamp": [
+          "oklch(15% 0.29473 311.67)",
+          "oklch(26% 0.29473 311.67)",
+          "oklch(38% 0.29473 311.67)",
+          "oklch(49% 0.29473 311.67)",
+          "oklch(61% 0.29473 311.67)",
+          "oklch(72% 0.29473 311.67)",
+          "oklch(84% 0.29473 311.67)",
+          "oklch(95% 0.29473 311.67)"
+        ]
+      },
+      "brand-white": {
+        "role": "neutral",
+        "displayName": "Brand White",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15% 0.25185 263.67)",
+          "oklch(26% 0.25185 263.67)",
+          "oklch(38% 0.25185 263.67)",
+          "oklch(49% 0.25185 263.67)",
+          "oklch(61% 0.25185 263.67)",
+          "oklch(72% 0.25185 263.67)",
+          "oklch(84% 0.25185 263.67)",
+          "oklch(95% 0.25185 263.67)"
+        ]
+      },
+      "danger": {
+        "role": "secondary",
+        "displayName": "Danger",
+        "tonalRamp": [
+          "oklch(15% 0.17935 21.80)",
+          "oklch(26% 0.17935 21.80)",
+          "oklch(38% 0.17935 21.80)",
+          "oklch(49% 0.17935 21.80)",
+          "oklch(61% 0.17935 21.80)",
+          "oklch(72% 0.17935 21.80)",
+          "oklch(84% 0.17935 21.80)",
+          "oklch(95% 0.17935 21.80)"
+        ]
+      },
+      "success": {
+        "role": "secondary",
+        "displayName": "Success",
+        "tonalRamp": [
+          "oklch(15% 0.11354 154.17)",
+          "oklch(26% 0.11354 154.17)",
+          "oklch(38% 0.11354 154.17)",
+          "oklch(49% 0.11354 154.17)",
+          "oklch(61% 0.11354 154.17)",
+          "oklch(72% 0.11354 154.17)",
+          "oklch(84% 0.11354 154.17)",
+          "oklch(95% 0.11354 154.17)"
+        ]
+      },
+      "control": {
+        "role": "neutral",
+        "displayName": "Control",
+        "tonalRamp": [
+          "oklch(15% 0.01617 244.86)",
+          "oklch(26% 0.01617 244.86)",
+          "oklch(38% 0.01617 244.86)",
+          "oklch(49% 0.01617 244.86)",
+          "oklch(61% 0.01617 244.86)",
+          "oklch(72% 0.01617 244.86)",
+          "oklch(84% 0.01617 244.86)",
+          "oklch(95% 0.01617 244.86)"
+        ]
+      },
+      "wordmark": {
+        "role": "neutral",
+        "displayName": "Wordmark",
+        "tonalRamp": [
+          "oklch(15% 0.02397 248.84)",
+          "oklch(26% 0.02397 248.84)",
+          "oklch(38% 0.02397 248.84)",
+          "oklch(49% 0.02397 248.84)",
+          "oklch(61% 0.02397 248.84)",
+          "oklch(72% 0.02397 248.84)",
+          "oklch(84% 0.02397 248.84)",
+          "oklch(95% 0.02397 248.84)"
+        ]
+      },
+      "action": {
+        "role": "primary",
+        "displayName": "Action",
+        "tonalRamp": [
+          "oklch(15% 0.02397 248.84)",
+          "oklch(26% 0.02397 248.84)",
+          "oklch(38% 0.02397 248.84)",
+          "oklch(49% 0.02397 248.84)",
+          "oklch(61% 0.02397 248.84)",
+          "oklch(72% 0.02397 248.84)",
+          "oklch(84% 0.02397 248.84)",
+          "oklch(95% 0.02397 248.84)"
+        ]
+      },
+      "action-fg": {
+        "role": "neutral",
+        "displayName": "Action Fg",
+        "tonalRamp": [
+          "oklch(15% 0.00396 106.47)",
+          "oklch(26% 0.00396 106.47)",
+          "oklch(38% 0.00396 106.47)",
+          "oklch(49% 0.00396 106.47)",
+          "oklch(61% 0.00396 106.47)",
+          "oklch(72% 0.00396 106.47)",
+          "oklch(84% 0.00396 106.47)",
+          "oklch(95% 0.00396 106.47)"
+        ]
+      },
+      "action-hover": {
+        "role": "primary",
+        "displayName": "Action Hover",
+        "tonalRamp": [
+          "oklch(15% 0.25185 263.67)",
+          "oklch(26% 0.25185 263.67)",
+          "oklch(38% 0.25185 263.67)",
+          "oklch(49% 0.25185 263.67)",
+          "oklch(61% 0.25185 263.67)",
+          "oklch(72% 0.25185 263.67)",
+          "oklch(84% 0.25185 263.67)",
+          "oklch(95% 0.25185 263.67)"
+        ]
+      },
+      "action-pressed": {
+        "role": "primary",
+        "displayName": "Action Pressed",
+        "tonalRamp": [
+          "oklch(15% 0.21058 263.72)",
+          "oklch(26% 0.21058 263.72)",
+          "oklch(38% 0.21058 263.72)",
+          "oklch(49% 0.21058 263.72)",
+          "oklch(61% 0.21058 263.72)",
+          "oklch(72% 0.21058 263.72)",
+          "oklch(84% 0.21058 263.72)",
+          "oklch(95% 0.21058 263.72)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "IBM Plex Sans display role, weight 600, 1.18 leading."
+      },
+      "h1": {
+        "displayName": "H1",
+        "purpose": "IBM Plex Sans h1 role, weight 600, 1.18 leading."
+      },
+      "h2": {
+        "displayName": "H2",
+        "purpose": "IBM Plex Sans h2 role, weight 600, 1.18 leading."
+      },
+      "h3": {
+        "displayName": "H3",
+        "purpose": "IBM Plex Sans h3 role, weight 500, 1.3 leading."
+      },
+      "h4": {
+        "displayName": "H4",
+        "purpose": "IBM Plex Sans h4 role, weight 500, 1.3 leading."
+      },
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "IBM Plex Sans hero role, weight 600, 1.12 leading."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "IBM Plex Sans lead role, weight 400, 1.6 leading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "IBM Plex Sans reading and interface copy, 17px with 1.6 leading."
+      },
+      "sm": {
+        "displayName": "Sm",
+        "purpose": "IBM Plex Sans supporting copy and labels, 15px."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Plex Sans labels and tabular ordered indices, 15px; no decorative mono or expanded tracking."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-precise",
+        "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "purpose": "Shared interface timing or easing."
+      },
+      {
+        "name": "ease-out-soft",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Shared interface timing or easing."
+      },
+      {
+        "name": "dur-fast",
+        "value": "150ms",
+        "purpose": "Shared interface timing or easing."
+      },
+      {
+        "name": "dur-base",
+        "value": "220ms",
+        "purpose": "Shared interface timing or easing."
+      },
+      {
+        "name": "dur-slow",
+        "value": "320ms",
+        "purpose": "Shared interface timing or easing."
+      },
+      {
+        "name": "logo-assembly",
+        "value": "1.6s",
+        "purpose": "Once-only fragment settlement."
+      },
+      {
+        "name": "logo-loop",
+        "value": "12s; pitch \u00b14\u00b0, yaw \u00b116\u00b0, roll \u00b11\u00b0; vertical float \u00b10.075 scene units; 1.2s onset",
+        "purpose": "Continuous readable rotation and floating on desktop and touch screens, governed by pause and visibility controls."
+      },
+      {
+        "name": "poster-crossfade",
+        "value": "500ms var(--ease-out-soft)",
+        "purpose": "Static-to-live hero transition."
+      },
+      {
+        "name": "button-transition",
+        "value": "200ms var(--ease-precise)",
+        "purpose": "Button interaction states."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "24rem"
+      },
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      },
+      {
+        "name": "xl",
+        "value": "80rem"
+      },
+      {
+        "name": "2xl",
+        "value": "96rem"
+      }
+    ],
+    "themes": {
+      "public": {
+        "colorScheme": "light",
+        "colors": {
+          "void": "#f7f7f4",
+          "surface": "#efefeb",
+          "elevated": "#ffffff",
+          "sunken": "#e8e9e5",
+          "fg": "#17212b",
+          "muted": "#4e5a67",
+          "subtle": "#606b76",
+          "line": "#17212b1f",
+          "line-strong": "#17212b80",
+          "control": "#7a838b",
+          "cyan": "#00cdfd",
+          "azure": "#00a6fc",
+          "blue": "#1757fc",
+          "violet": "#863afb",
+          "magenta": "#b914fc",
+          "brand-white": "#f8f8f8",
+          "wordmark": "#17212b",
+          "accent": "#1757fc",
+          "danger": "#b42332",
+          "success": "#187342",
+          "action": "#17212b",
+          "action-fg": "#f7f7f4",
+          "action-hover": "#1757fc",
+          "action-pressed": "#1245c9"
+        }
+      },
+      "staff": {
+        "colorScheme": "dark",
+        "selector": ":root:has([data-theme=\"dark\"]), [data-theme=\"dark\"]",
+        "colors": {
+          "void": "#05070b",
+          "surface": "#0a0e15",
+          "elevated": "#10151e",
+          "sunken": "#03050899",
+          "fg": "#e8edf5",
+          "muted": "#9aa6b8",
+          "subtle": "#78859a",
+          "line": "#ffffff12",
+          "line-strong": "#ffffff24",
+          "control": "#ffffff24",
+          "cyan": "#00cdfd",
+          "azure": "#00a6fc",
+          "blue": "#1757fc",
+          "violet": "#863afb",
+          "magenta": "#b914fc",
+          "brand-white": "#f8f8f8",
+          "wordmark": "#f8f8f8",
+          "accent": "#00cdfd",
+          "danger": "#ff6b6b",
+          "success": "#4ade80",
+          "action": "#e8edf5",
+          "action-fg": "#05070b",
+          "action-hover": "#ffffff",
+          "action-pressed": "#d6dde8"
+        }
+      }
+    },
+    "gradients": {
+      "subtitle": "linear-gradient(90deg, #2f4ef2 0%, #a225ef 100%)",
+      "note": "Only the official monogram and TECHNOLOGY subtitle retain source gradients. Headlines are solid ink."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Stable medium action; responsive size follows the shared Button component.",
+      "html": "<button class=\"ds-btn\">Start a project</button>",
+      "css": ".ds-btn{display:inline-flex;max-width:100%;align-items:center;justify-content:center;gap:.5rem;border-radius:var(--radius-md);font-family:var(--font-sans);font-size:.9375rem;font-weight:500;text-align:center;height:2.75rem;padding:0 1.25rem;cursor:pointer;transition:background-color 200ms var(--ease-precise),color 200ms var(--ease-precise),border-color 200ms var(--ease-precise)}@media(min-width:40rem){.ds-btn{height:3rem;padding:0 1.5rem;font-size:1.0625rem}}.ds-btn:disabled{pointer-events:none;opacity:.4}.ds-btn:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;border-radius:var(--radius-xs)}.ds-btn{background:var(--color-action);color:var(--color-action-fg);border:0}.ds-btn:hover{background:var(--color-action-hover)}.ds-btn:active{background:var(--color-action-pressed)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Stable medium action; responsive size follows the shared Button component.",
+      "html": "<button class=\"ds-btn\">Start a project</button>",
+      "css": ".ds-btn{display:inline-flex;max-width:100%;align-items:center;justify-content:center;gap:.5rem;border-radius:var(--radius-md);font-family:var(--font-sans);font-size:.9375rem;font-weight:500;text-align:center;height:2.75rem;padding:0 1.25rem;cursor:pointer;transition:background-color 200ms var(--ease-precise),color 200ms var(--ease-precise),border-color 200ms var(--ease-precise)}@media(min-width:40rem){.ds-btn{height:3rem;padding:0 1.5rem;font-size:1.0625rem}}.ds-btn:disabled{pointer-events:none;opacity:.4}.ds-btn:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;border-radius:var(--radius-xs)}.ds-btn{border:1px solid var(--color-control);background:var(--color-surface);color:var(--color-fg)}.ds-btn:hover{border-color:var(--color-line-strong);background:var(--color-elevated)}.ds-btn:active{background:var(--color-surface)}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Stable medium action; responsive size follows the shared Button component.",
+      "html": "<button class=\"ds-btn\">Start a project</button>",
+      "css": ".ds-btn{display:inline-flex;max-width:100%;align-items:center;justify-content:center;gap:.5rem;border-radius:var(--radius-md);font-family:var(--font-sans);font-size:.9375rem;font-weight:500;text-align:center;height:2.75rem;padding:0 1.25rem;cursor:pointer;transition:background-color 200ms var(--ease-precise),color 200ms var(--ease-precise),border-color 200ms var(--ease-precise)}@media(min-width:40rem){.ds-btn{height:3rem;padding:0 1.5rem;font-size:1.0625rem}}.ds-btn:disabled{pointer-events:none;opacity:.4}.ds-btn:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;border-radius:var(--radius-xs)}.ds-btn{background:transparent;color:var(--color-muted);border:0}.ds-btn:hover{color:var(--color-fg);background:color-mix(in srgb,var(--color-fg) 5%,transparent)}.ds-btn:active{background:color-mix(in srgb,var(--color-fg) 10%,transparent)}"
+    },
+    {
+      "name": "Contact Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labelled light field with visible control border, blue focus and written error support.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-email\">Email</label><input class=\"ds-field\" id=\"ds-email\" type=\"email\" placeholder=\"you@company.com\">",
+      "css": ".ds-field-label{display:block;font:500 .9375rem var(--font-sans);color:var(--color-fg);margin-bottom:.625rem}.ds-field{width:calc(100% - 2rem);border:1px solid var(--color-control);border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-elevated) 60%,transparent);color:var(--color-fg);padding:.75rem 1rem;font:1.0625rem/1.6 var(--font-sans);caret-color:var(--color-accent);transition:border-color 150ms var(--ease-precise),background-color 150ms var(--ease-precise),box-shadow 150ms var(--ease-precise)}.ds-field::placeholder{color:var(--color-subtle)}.ds-field:hover{border-color:var(--color-line-strong)}.ds-field:focus,.ds-field:focus-visible{outline:none;border-color:var(--color-accent);background:var(--color-elevated);box-shadow:0 0 0 2px color-mix(in srgb,var(--color-accent) 25%,transparent)}.ds-field[aria-invalid=\"true\"]{border-color:var(--color-danger)}.ds-field:disabled{opacity:.5}"
+    },
+    {
+      "name": "Taxonomy Text",
+      "kind": "custom",
+      "refersTo": "tag",
+      "description": "Non-interactive plain taxonomy text.",
+      "html": "<span class=\"ds-tag\">TypeScript</span>",
+      "css": ".ds-tag{display:inline-flex;color:var(--color-muted);font:.9375rem/1.4 var(--font-sans)}"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "description": "Compact links with an electric-blue active hairline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#about\">About</a><a href=\"#services\" aria-current=\"page\">Services</a><a href=\"#work\">Work</a></nav>",
+      "css": ".ds-nav{display:flex;gap:.25rem}.ds-nav a{position:relative;display:flex;align-items:center;height:2.75rem;padding:0 .875rem;border-radius:var(--radius-sm);font:.9375rem var(--font-sans);color:var(--color-muted);text-decoration:none;transition:color 150ms var(--ease-precise)}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--color-fg)}.ds-nav a[aria-current]::after{content:\"\";position:absolute;left:.875rem;right:.875rem;bottom:-1px;height:1px;background:var(--color-accent)}.ds-nav a:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}"
+    },
+    {
+      "name": "Technology Row",
+      "kind": "custom",
+      "refersTo": "technology-row",
+      "description": "A layer, explanation and tool list in an open definition row.",
+      "html": "<dl class=\"ds-tools\"><div><dt>Backend</dt><dd>Explicit system boundaries and typed interfaces.</dd><dd>Node.js, TypeScript, Python, FastAPI, REST, GraphQL</dd></div></dl>",
+      "css": ".ds-tools>div{display:grid;gap:1rem;border-top:1px solid var(--color-line);padding:1.75rem 0}.ds-tools dt{font:500 var(--text-h4)/1.3 var(--font-display);color:var(--color-fg)}.ds-tools dd{font:1.0625rem/1.6 var(--font-sans);color:var(--color-muted)}.ds-tools dd:last-child{font-size:.9375rem;color:var(--color-subtle)}@media(min-width:64rem){.ds-tools>div{grid-template-columns:3fr 5fr 4fr;gap:2rem}}"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "description": "A clear heading and optional explanation, without a duplicate caption.",
+      "html": "<div class=\"ds-section\"><h2>Tools we work with</h2><p>The stack depends on your system, budget and team.</p></div>",
+      "css": ".ds-section h2{max-width:24ch;margin:0;color:var(--color-fg);font:600 var(--text-h2)/1.18 var(--font-display);letter-spacing:-.015em;text-wrap:balance}.ds-section p{max-width:62ch;margin-top:1.25rem;color:var(--color-muted);font:var(--text-lead)/1.6 var(--font-sans)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quorlyn Engineering Document",
+    "overview": "Quorlyn uses a soft off-white public ground, dark ink, one consistent IBM Plex Sans interface family. Its source-derived Q/T monogram supplies the dimensional visual and the original cyan-to-magenta colors. Open rows and fine dividers organize the engineering content. Only the homepage hero runs a live scene; secondary pages and closing calls to action focus on their content. The staff area retains its dark palette.",
+    "keyCharacteristics": [
+      "Soft off-white public pages, dark ink and solid primary actions.",
+      "IBM Plex Sans throughout the interface; original logo lettering and actual code/reference values retain their own faces.",
+      "Open service, technology, principle and work rows with fine dividers.",
+      "One continuously moving, pausable source-derived 3D logo in the homepage hero.",
+      "Static readable content, visible keyboard focus and image fallbacks."
+    ],
+    "rules": [
+      {
+        "name": "Source authority",
+        "body": "Preserve the official logo silhouette, fragments and sampled colors. Company facts and capabilities come from the repository; missing proof stays unpublished.",
+        "section": "colors"
+      },
+      {
+        "name": "Accent boundary",
+        "body": "Gradients belong to the original monogram and TECHNOLOGY subtitle. Headings use solid ink; actions and focus use solid blue.",
+        "section": "colors"
+      },
+      {
+        "name": "One interface family",
+        "body": "IBM Plex Sans carries headings, reading copy, navigation, controls and labels. Use 400 for reading, 500 for controls/short titles and 600 for h1/h2. Preserve Space Grotesk only for the QUORLYN wordmark and JetBrains Mono for actual codes/references and the official subtitle.",
+        "section": "typography"
+      },
+      {
+        "name": "Readable immediately",
+        "body": "Reading sections are server-rendered static content. Reduced motion uses a still; user pause, off-screen state and tab visibility stop the live scene.",
+        "section": "elevation"
+      },
+      {
+        "name": "Structure before decoration",
+        "body": "Use spacing and fine dividers. Do not add glass, glows, background grids, floating ornaments, repeated logo reliefs or uniform text cards.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Use the original brand artwork and verified content sources.",
+      "Explain the problem, approach and deliverables in plain language.",
+      "Keep existing routes, service anchors and enquiry mappings.",
+      "Give controls visible focus and written error feedback.",
+      "Regenerate the hero still from the actual mesh and retain provenance."
+    ],
+    "donts": [
+      "Invent founder quotes, clients, team biographies, testimonials, metrics or delivery guarantees.",
+      "Turn missing portfolio evidence into placeholder content.",
+      "Add gradient headings, neon hover glows or blurred decorative cards.",
+      "Animate reading sections or hide copy until it enters the viewport.",
+      "Expose backend configuration instructions to public visitors."
+    ]
+  }
+}

@@ -6,35 +6,33 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 /**
- * Button states are carried by color, border and a brand ring — never by
+ * Button states are carried by color, border and visible focus, rather than
  * layout. Nothing here changes an element's box on hover, so rows of buttons
  * can't jitter and reflow neighbours.
  *
- * `primary` is a light solid rather than a gradient fill: white-on-cyan fails
- * AA, and reserving the gradient for the mark and hairlines keeps it meaningful.
+ * Primary action colors follow the surface theme; the fill stays solid.
  */
 // No `whitespace-nowrap`: a long label must wrap inside its container rather
 // than push the page wider than the viewport. `max-w-full` keeps the box inside
 // its parent even when the label is a single unbreakable word.
 const base =
   "relative inline-flex max-w-full items-center justify-center gap-2 rounded-md text-center " +
-  "font-medium transition-[background-color,color,border-color,box-shadow,opacity] " +
+  "font-medium transition-[background-color,color,border-color,opacity] " +
   "duration-200 ease-precise select-none " +
   "disabled:pointer-events-none disabled:opacity-40 aria-disabled:pointer-events-none aria-disabled:opacity-40";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-fg text-void hover:bg-white active:bg-[#d6dde8] " +
-    "shadow-[0_0_0_1px_rgba(255,255,255,0.08)] hover:shadow-glow",
+    "bg-action text-action-fg hover:bg-action-hover active:bg-action-pressed",
   secondary:
-    "border border-line bg-surface/60 text-fg backdrop-blur-sm " +
+    "border border-control bg-surface text-fg " +
     "hover:border-line-strong hover:bg-elevated active:bg-surface",
-  ghost: "text-muted hover:text-fg hover:bg-white/5 active:bg-white/10",
+  ghost: "text-muted hover:text-fg hover:bg-fg/5 active:bg-fg/10",
 };
 
 /** Sizes keep every target at or above the 44px comfortable-touch floor. */
 const sizes: Record<Size, string> = {
-  sm: "h-10 px-3.5 text-sm",
+  sm: "min-h-11 px-3.5 py-2 text-sm",
   md: "h-11 px-5 text-sm sm:h-12 sm:px-6 sm:text-body",
   lg: "h-12 px-6 text-body sm:h-14 sm:px-8",
 };

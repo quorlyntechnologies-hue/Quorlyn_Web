@@ -78,7 +78,7 @@ export default async function InquiriesPage({
     <AdminChrome session={session} current="/admin/inquiries">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="font-mono text-label tracking-[0.2em] text-subtle uppercase">Inquiries</p>
+          <p className="text-sm font-medium text-subtle">Inquiries</p>
           <h1 className="mt-3 text-h2 text-fg">
             {total} {total === 1 ? "inquiry" : "inquiries"}
             {status || query ? " matching" : ""}
@@ -115,7 +115,7 @@ export default async function InquiriesPage({
             <Link
               href={buildHref({ status: "", page: "1" })}
               className={cn(
-                "inline-flex h-8 items-center rounded-full border px-3 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors",
+                "inline-flex h-8 items-center rounded-full border px-3 text-sm font-medium transition-colors",
                 !status
                   ? "border-cyan/30 bg-cyan/10 text-accent"
                   : "border-line text-muted hover:border-line-strong hover:text-fg",
@@ -129,7 +129,7 @@ export default async function InquiriesPage({
               <Link
                 href={buildHref({ status: option.value, page: "1" })}
                 className={cn(
-                  "inline-flex h-8 items-center rounded-full border px-3 font-mono text-[11px] tracking-[0.1em] uppercase transition-colors",
+                  "inline-flex h-8 items-center rounded-full border px-3 text-sm font-medium transition-colors",
                   status === option.value
                     ? "border-cyan/30 bg-cyan/10 text-accent"
                     : "border-line text-muted hover:border-line-strong hover:text-fg",
@@ -164,7 +164,7 @@ export default async function InquiriesPage({
                   <th
                     key={heading}
                     scope="col"
-                    className="px-5 py-3 font-mono text-[10px] tracking-[0.16em] text-subtle uppercase"
+                    className="px-5 py-3 text-sm font-medium text-subtle"
                   >
                     {heading}
                   </th>
@@ -177,7 +177,7 @@ export default async function InquiriesPage({
                   <td className="px-5 py-4">
                     <Link
                       href={`/admin/inquiries/${inquiry.id}`}
-                      className="font-mono text-[12px] text-accent hover:underline"
+                      className="font-mono text-sm text-accent hover:underline"
                     >
                       {inquiry.reference}
                     </Link>
@@ -210,7 +210,7 @@ export default async function InquiriesPage({
 
       {pageCount > 1 && (
         <nav aria-label="Pagination" className="mt-8 flex items-center justify-between gap-4">
-          <span className="font-mono text-[11px] tracking-[0.12em] text-subtle uppercase">
+          <span className="text-sm text-subtle">
             Page {page} of {pageCount}
           </span>
           <div className="flex gap-2">

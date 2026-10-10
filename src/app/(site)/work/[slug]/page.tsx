@@ -4,10 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PageHeader } from "@/components/layout/PageHeader";
-import { ArrowRight } from "@/components/ui/Button";
+import { ArrowRight, ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { CTASection } from "@/components/ui/CTASection";
-import { Reveal } from "@/components/ui/Reveal";
+import { Content } from "@/components/ui/Content";
 import { Section } from "@/components/ui/SectionHeading";
 import { Tag } from "@/components/ui/Tag";
 import { getProject, projects } from "@/content/projects";
@@ -15,10 +15,8 @@ import { getProject, projects } from "@/content/projects";
 type Params = { params: Promise<{ slug: string }> };
 
 /**
- * Case study template.
- *
- * `projects` is currently empty, so this route generates no pages — it exists
- * so publishing a case study is a content change, not an engineering task.
+ * Published project template. Missing case-study narrative, stack and measured
+ * results are omitted rather than filled with guessed implementation details.
  */
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -41,28 +39,35 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-export default async function CaseStudyPage({ params }: Params) {
+export default async function ProjectPage({ params }: Params) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
 
   const sections = [
+    { label: "About the game", body: project.overview },
     { label: "Challenge", body: project.challenge },
     { label: "Approach", body: project.approach },
     { label: "Solution", body: project.solution },
-  ];
+  ].filter((section) => section.body);
+  const [cover, ...additionalImages] = project.images;
 
   return (
     <>
       <PageHeader
-        eyebrow={project.category}
+        category={project.category}
         title={project.title}
         lead={project.summary}
+        actions={project.publication && (
+          <ButtonLink href={project.publication.actionUrl} size="lg" className="group">
+            {project.publication.actionLabel}<ArrowRight />
+          </ButtonLink>
+        )}
         meta={[
-          { label: "Client", value: project.client ?? "Under NDA" },
+          ...(project.client ? [{ label: "Client", value: project.client }] : []),
           { label: "Year", value: project.year },
-          { label: "Category", value: project.category },
-          { label: "Stack", value: project.technologies.slice(0, 3).join(", ") },
+          ...(project.publication ? [{ label: "Platform", value: project.publication.platform }] : []),
+          ...(project.technologies.length ? [{ label: "Stack", value: project.technologies.slice(0, 3).join(", ") }] : []),
         ]}
       />
 
@@ -70,35 +75,63 @@ export default async function CaseStudyPage({ params }: Params) {
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="space-y-12 lg:col-span-8">
-              {sections.map((section, i) => (
-                <Reveal key={section.label} delay={Math.min(i * 60, 180)}>
-                  <h2 className="font-mono text-[11px] tracking-[0.18em] text-subtle uppercase">
+              {cover && (
+                <figure className="overflow-hidden rounded-md">
+                  <Image
+                    src={cover.src}
+                    alt={cover.alt}
+                    width={cover.width}
+                    height={cover.height}
+                    sizes="(min-width: 1280px) 50rem, (min-width: 1024px) 60vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </figure>
+              )}
+              {sections.map((section) => (
+                <Content key={section.label}>
+                  <h2 className="text-h3 text-fg">
                     {section.label}
                   </h2>
                   <p className="mt-4 text-lead leading-relaxed text-muted">{section.body}</p>
-                </Reveal>
+                </Content>
               ))}
 
-              {project.images.map((image) => (
-                <Reveal key={image.src}>
+              {additionalImages.map((image) => (
+                <Content key={image.src}>
                   <figure className="overflow-hidden rounded-lg border border-line">
                     <Image
                       src={image.src}
                       alt={image.alt}
-                      width={1600}
-                      height={1000}
+                      width={image.width}
+                      height={image.height}
                       className="h-auto w-full"
                       sizes="(min-width: 1024px) 60rem, 100vw"
                     />
                   </figure>
-                </Reveal>
+                </Content>
               ))}
             </div>
 
             <aside className="lg:col-span-4">
               <div className="space-y-8 lg:sticky lg:top-32">
-                <Reveal className="rounded-lg border border-line bg-surface/50 p-6">
-                  <h2 className="font-mono text-[11px] tracking-[0.18em] text-subtle uppercase">
+                {project.publication && (
+                  <Content className="border-t border-line pt-6">
+                    <h2 className="text-h4 text-fg">Published on {project.publication.platform}</h2>
+                    <p className="mt-4 text-sm leading-relaxed text-muted">
+                      The public listing credits Quorlyn Technology Private Limited as the developer.
+                    </p>
+                    <a
+                      href={project.publication.listingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm text-accent hover:underline"
+                    >
+                      View game listing<ArrowRight />
+                    </a>
+                  </Content>
+                )}
+                {project.technologies.length > 0 && <Content className="border-t border-line pt-6">
+                  <h2 className="text-h4 text-fg">
                     Technology
                   </h2>
                   <ul className="mt-4 flex flex-wrap gap-2">
@@ -108,12 +141,12 @@ export default async function CaseStudyPage({ params }: Params) {
                       </li>
                     ))}
                   </ul>
-                </Reveal>
+                </Content>}
 
                 {/* Rendered only when measured, client-approved numbers exist. */}
                 {project.metrics.length > 0 && (
-                  <Reveal delay={80} className="rounded-lg border border-line bg-surface/50 p-6">
-                    <h2 className="font-mono text-[11px] tracking-[0.18em] text-subtle uppercase">
+                  <Content className="border-t border-line pt-6">
+                    <h2 className="text-h4 text-fg">
                       Outcome
                     </h2>
                     <dl className="mt-5 space-y-5">
@@ -124,18 +157,18 @@ export default async function CaseStudyPage({ params }: Params) {
                         </div>
                       ))}
                     </dl>
-                  </Reveal>
+                  </Content>
                 )}
 
-                <Reveal delay={140}>
+                <Content>
                   <Link
                     href="/work"
-                    className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] text-accent uppercase"
+                    className="group inline-flex min-h-11 items-center gap-2 text-sm text-accent"
                   >
                     All work
                     <ArrowRight />
                   </Link>
-                </Reveal>
+                </Content>
               </div>
             </aside>
           </div>
@@ -143,9 +176,8 @@ export default async function CaseStudyPage({ params }: Params) {
       </Section>
 
       <CTASection
-        eyebrow="Similar problem?"
-        title="Tell us where yours differs"
-        body="The useful conversation is usually about the constraint that makes your version harder than this one."
+        title="Have a project in mind?"
+        body="Tell us what you want to build. We can discuss the scope and how to approach it."
       />
     </>
   );

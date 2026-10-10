@@ -3,32 +3,32 @@
 /* ==========================================================================
    QUORLYN TECHNOLOGY — DESIGN SYSTEM
    Derived from the brand mark: a geometric Q built from dissolving pixels,
-   rendered in a cyan → electric blue → violet transition on near-black.
+   rendered in its cyan → electric blue → violet transition on soft off-white.
 
    Principles
-   1. Dark is the ground, not a theme. The mark only reads on near-black.
-   2. Gradient is an accent, never a surface. It marks brand moments:
-      the mark, hairlines, focus rings, the hero lattice. Never a page wash.
+   1. Soft off-white is the public ground; dark ink carries the reading copy.
+   2. The gradient belongs to the official logo, not headlines or reading surfaces.
    3. Hairlines over fills. Structure is drawn with 1px borders, not shadows.
-   4. Glow is earned. Reserved for the mark and primary interaction states.
-   5. Motion is precise: 150–300ms, cubic-bezier(.2,.8,.2,1), opacity+transform only.
+   4. Interaction uses solid colors and visible focus; no decorative glow.
+   5. Motion is precise: short UI transitions and a bounded, pausable logo loop.
    ========================================================================== */
 
 @theme {
   /* --- Base surfaces ---------------------------------------------------- */
-  --color-void: #05070b; /* page ground */
-  --color-surface: #0a0e15; /* cards, panels */
-  --color-elevated: #10151e; /* raised / hover surface */
-  --color-sunken: #03050899; /* insets, code, form fields */
+  --color-void: #f7f7f4; /* soft off-white page ground */
+  --color-surface: #efefeb; /* quiet panels and bands */
+  --color-elevated: #ffffff; /* fields and raised / hover surface */
+  --color-sunken: #e8e9e5; /* insets */
 
   /* --- Foreground ------------------------------------------------------- */
-  --color-fg: #e8edf5; /* 16.4:1 on void  — headings, body */
-  --color-muted: #9aa6b8; /*  8.3:1 on void  — supporting copy */
-  --color-subtle: #78859a; /*  5.5:1 on void  — labels, meta */
+  --color-fg: #17212b; /* 15.2:1 on void — headings, body */
+  --color-muted: #4e5a67; /* 6.6:1 on void — supporting copy */
+  --color-subtle: #606b76; /* 5.1:1 on void — labels, meta */
 
   /* --- Lines ------------------------------------------------------------ */
-  --color-line: #ffffff12; /* default hairline */
-  --color-line-strong: #ffffff24; /* hover / active hairline */
+  --color-line: #17212b1f; /* structural hairlines */
+  --color-line-strong: #17212b80; /* hover / active hairline */
+  --color-control: #7a838b; /* 3.6:1 on void — control boundaries */
 
   /* --- Brand accents ----------------------------------------------------
      Sampled directly from public/brand/quorlyn-logo.png, not chosen by eye.
@@ -45,55 +45,48 @@
   --color-violet: #863afb;
   --color-magenta: #b914fc;
 
-  /* The wordmark's own white, #F8F8F8 — neutral, unlike --color-fg, which is
-     tinted and slightly dimmed for comfortable long-form reading. Used only by
-     the QUORLYN lockup so it matches the artwork exactly. */
+  /* Preserve the source artwork's white; the live wordmark adapts to its ground. */
   --color-brand-white: #f8f8f8;
+  --color-wordmark: #17212b;
 
-  /* Interactive accent. The logo cyan is bright enough to carry small text on
-     the void ground, so this is the sampled value rather than a lightened one. */
-  --color-accent: #00cdfd;
-  --color-danger: #ff6b6b;
-  --color-success: #4ade80;
+  /* The official electric blue is readable on the light ground; the actual
+     monogram keeps its full, unaltered sampled color sequence. */
+  --color-accent: #1757fc;
+  --color-danger: #b42332;
+  --color-success: #187342;
+  --color-action: #17212b;
+  --color-action-fg: #f7f7f4;
+  --color-action-hover: #1757fc;
+  --color-action-pressed: #1245c9;
 
   /* --- Typography ------------------------------------------------------- */
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  /* Fluid type scale — 1.25 ratio, clamped so nothing shrinks below 16px body */
+  /* Fluid headings, 17px reading copy and 15px supporting text. */
   --text-display: clamp(2.75rem, 1.45rem + 5.6vw, 5.25rem);
   --text-h1: clamp(2.25rem, 1.55rem + 3vw, 3.75rem);
   --text-h2: clamp(1.75rem, 1.35rem + 1.7vw, 2.625rem);
   --text-h3: clamp(1.3125rem, 1.2rem + 0.5vw, 1.625rem);
   --text-h4: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
-  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
-  --text-body: 1rem;
-  --text-sm: 0.875rem;
-  --text-label: 0.75rem;
+  --text-lead: clamp(1.125rem, 1.0625rem + 0.35vw, 1.3125rem);
+  --text-body: 1.0625rem;
+  --text-sm: 0.9375rem;
+  --text-label: 0.9375rem;
 
-  /* --- Radius — restrained. Nothing is a pill except tags. -------------- */
+  /* --- Radius — controls and media; reading sections stay open. -------- */
   --radius-xs: 3px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --radius-xl: 20px;
 
-  /* --- Elevation — dark UI reads depth from light, not shadow ---------- */
-  --shadow-sm: 0 1px 2px #00000080;
-  --shadow-md: 0 8px 24px -8px #00000099;
-  --shadow-lg: 0 24px 64px -24px #000000cc;
-  /* Derived from the brand token rather than a pasted hex, so re-sampling the
-     logo updates every glow on the site. */
-  --shadow-glow:
-    0 0 0 1px color-mix(in srgb, var(--color-cyan) 18%, transparent),
-    0 0 32px -8px color-mix(in srgb, var(--color-cyan) 25%, transparent);
-  /* Process-timeline node: a void halo that punches through the rail, plus a
-     soft brand bloom. */
-  --shadow-node:
-    0 0 0 4px var(--color-void),
-    0 0 12px 2px color-mix(in srgb, var(--color-cyan) 35%, transparent);
-
+  /* --- Elevation — reading panels retain fine borders ----------------- */
+  --shadow-sm: 0 1px 2px #17212b0a;
+  --shadow-md: 0 8px 24px -8px #17212b14;
+  --shadow-lg: 0 24px 64px -24px #17212b24;
   /* --- Motion ----------------------------------------------------------- */
   --ease-precise: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
@@ -110,38 +103,44 @@
   --breakpoint-2xl: 96rem; /* 1536 — large desktop */
 }
 
-/* Named gradients — the one place brand color is allowed to run. */
+/* The official lockup retains its source subtitle gradient. */
 @layer base {
   :root {
-    /* The mark's gradient runs diagonally, cyan at the crown to magenta at the
-       stem tip. Flattened to ~100° here because this is used across short,
-       wide runs — headline words, hairlines — where a diagonal sweep would
-       compress into a vertical band. The stops are the mark's; the angle is
-       contextual. */
-    --gradient-brand: linear-gradient(
-      100deg,
-      var(--color-cyan) 0%,
-      var(--color-azure) 26%,
-      var(--color-blue) 54%,
-      var(--color-violet) 82%,
-      var(--color-magenta) 100%
-    );
-
     /* The TECHNOLOGY subtitle in the artwork runs #2F4EF2 → #A225EF — a
        tighter, deeper span than the full brand gradient. */
     --gradient-subtitle: linear-gradient(90deg, #2f4ef2 0%, #a225ef 100%);
 
-    --gradient-hairline: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--color-cyan) 22%,
-      var(--color-violet) 78%,
-      transparent 100%
-    );
     /* Content max width + gutter, referenced by <Container> */
     --container-max: 78rem;
     --gutter: 1.25rem;
 
+    color-scheme: light;
+  }
+
+  /* Staff screens keep their established palette. The server-rendered marker
+     also scopes the document ground and native controls without a theme script. */
+  :root:has([data-theme="dark"]), [data-theme="dark"] {
+    --color-void: #05070b;
+    --color-surface: #0a0e15;
+    --color-elevated: #10151e;
+    --color-sunken: #03050899;
+    --color-fg: #e8edf5;
+    --color-muted: #9aa6b8;
+    --color-subtle: #78859a;
+    --color-line: #ffffff12;
+    --color-line-strong: #ffffff24;
+    --color-control: #ffffff24;
+    --color-wordmark: #f8f8f8;
+    --color-accent: #00cdfd;
+    --color-danger: #ff6b6b;
+    --color-success: #4ade80;
+    --color-action: #e8edf5;
+    --color-action-fg: #05070b;
+    --color-action-hover: #ffffff;
+    --color-action-pressed: #d6dde8;
+    --shadow-sm: 0 1px 2px #00000080;
+    --shadow-md: 0 8px 24px -8px #00000099;
+    --shadow-lg: 0 24px 64px -24px #000000cc;
     color-scheme: dark;
   }
 
@@ -178,7 +177,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip; /* belt-and-braces against horizontal scroll */
+    scrollbar-color: var(--color-line-strong) var(--color-void);
   }
+
+  input, textarea { caret-color: var(--color-accent); }
+
+  *::-webkit-scrollbar { width: 8px; height: 8px; }
+  *::-webkit-scrollbar-track { background: var(--color-void); }
+  *::-webkit-scrollbar-thumb { background: var(--color-subtle); border: 2px solid var(--color-void); border-radius: 6px; }
 
   h1,
   h2,
@@ -186,10 +192,13 @@
   h4 {
     font-family: var(--font-display);
     font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.025em;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
+
+  h1, h2 { font-weight: 600; }
+  h3, h4 { line-height: 1.3; letter-spacing: -0.01em; }
 
   p {
     text-wrap: pretty;
@@ -216,7 +225,7 @@
     color: inherit;
   }
 
-  /* Kill Chrome's yellow autofill wash on dark fields */
+  /* Autofill follows the current field surface. */
   input:-webkit-autofill,
   textarea:-webkit-autofill {
     -webkit-text-fill-color: var(--color-fg);
@@ -226,102 +235,79 @@
 }
 
 @layer utilities {
-  /* Brand gradient as text. Falls back to solid fg where unsupported. */
-  .text-gradient-brand {
-    background-image: var(--gradient-brand);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+  /* Administrative metric cells use borders to separate actual values. */
+  .mosaic { background-color: var(--color-void); }
+  .mosaic > * { outline: 1px solid var(--color-line); outline-offset: -0.5px; }
 
-  /* The lockup's TECHNOLOGY subtitle only. */
+  /* Official TECHNOLOGY lettering, not a general heading treatment. */
   .text-gradient-subtitle {
     background-image: var(--gradient-subtitle);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
+}
 
-  /* 1px brand rule used to open sections */
-  .rule-brand {
-    height: 1px;
-    background-image: var(--gradient-hairline);
+@layer components {
+  .hero-section { background: var(--color-void); }
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1rem, 3vw, 3rem);
+    min-height: min(58rem, calc(100svh - 6rem));
+    padding-top: 8.5rem;
+    padding-bottom: 4.5rem;
   }
+  .hero-copy { position: relative; z-index: 2; }
+  .hero-title { font-size: clamp(2.5rem, 4.6vw, 3.75rem); line-height: 1.12; letter-spacing: -0.025em; }
+  .capability-strip { background: color-mix(in srgb, var(--color-surface) 42%, var(--color-void)); }
 
-  /* The pixel-dissolution motif, as a background. Used sparingly:
-     hero ground, CTA band, footer. Never on a card. */
-  .bg-lattice {
-    background-image:
-      linear-gradient(var(--color-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    background-position: center;
+  .logo-scene { position: relative; width: 100%; aspect-ratio: 1 / 1.06; min-width: 0; }
+  .logo-scene-art, .logo-scene-canvas { position: absolute; inset: 0; }
+  .logo-scene-art { pointer-events: none; }
+  .logo-scene-canvas { opacity: 0; transition: opacity 500ms var(--ease-out-soft); }
+  .logo-scene-canvas canvas { display: block; width: 100%; height: 100%; }
+  .logo-scene-poster { width: 100%; height: 100%; object-fit: contain; transition: opacity 500ms var(--ease-out-soft); }
+  .logo-scene[data-scene="ready"] .logo-scene-canvas { opacity: 1; }
+  .logo-scene[data-scene="ready"] .logo-scene-poster { opacity: 0; }
+  .scene-control {
+    position: absolute; right: 0; bottom: 0; display: inline-flex; align-items: center; justify-content: center; gap: 0.625rem;
+    min-height: 44px; padding: 0.5rem 0.75rem; border-radius: var(--radius-sm);
+    color: var(--color-muted); font-size: var(--text-sm); background: transparent; cursor: pointer;
+    transition: color var(--dur-fast), background var(--dur-fast);
   }
+  .scene-control:hover { color: var(--color-fg); background: var(--color-surface); }
+  .scene-control-symbol { width: 9px; height: 10px; border-left: 2px solid currentColor; border-right: 2px solid currentColor; }
+  .scene-control-symbol[data-paused="true"] { width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid currentColor; border-right: 0; }
 
-  /* Hairline-separated grid of panels.
-     Cells carry their own inset outline rather than the container showing
-     through 1px gaps — so a row that does not divide evenly leaves empty space,
-     not a stray lit rectangle where a panel should have been. */
-  .mosaic {
-    background-color: var(--color-void);
+  .page-masthead { background: var(--color-void); }
+  .service-row { position: relative; padding-left: 0.5rem; padding-right: 0.5rem; }
+  .service-row:hover, .service-row:focus-visible { background: var(--color-surface); }
+  .closing-cta { background: var(--color-surface); }
+  .cta-content { position: relative; z-index: 1; }
+
+  @media (max-width: 63.999rem) {
+    .hero-layout { grid-template-columns: 1fr; gap: 0; padding-top: 8rem; padding-bottom: 2rem; min-height: 0; }
+    .hero-copy { max-width: 44rem; }
+    .hero-title { font-size: clamp(2.5rem, 6.6vw, 4.25rem); }
+    .logo-scene { width: min(100%, 35rem); justify-self: center; aspect-ratio: 1.15; margin-top: 1rem; }
   }
-
-  .mosaic > * {
-    outline: 1px solid var(--color-line);
-    outline-offset: -0.5px;
-  }
-
-  /* Soft brand bloom behind the closing CTA band. */
-  .bg-cta-bloom {
-    background-image: radial-gradient(
-      70% 100% at 50% 0%,
-      color-mix(in srgb, var(--color-cyan) 8%, transparent),
-      transparent 60%
-    );
-  }
-
-  .mask-fade-b {
-    mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
-  }
-
-  .mask-fade-edges {
-    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  }
-
-  /* Scroll reveal — driven by IntersectionObserver in <Reveal>. */
-  .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    transition:
-      opacity 620ms var(--ease-out-soft),
-      transform 620ms var(--ease-out-soft);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-
-  .reveal[data-visible="true"] {
-    opacity: 1;
-    transform: none;
+  @media (max-width: 39.999rem) {
+    .hero-layout { padding-top: 7rem; }
+    .hero-title { font-size: clamp(1.875rem, 8.5vw, 3.5rem); }
+    .logo-scene { margin-top: 0.5rem; aspect-ratio: 1.06; }
+    .scene-control { right: 50%; transform: translateX(50%); white-space: nowrap; }
   }
 }
 
-/* Reduced motion: remove movement, keep all content visible and legible.
-   Nothing may depend on an animation completing to become readable. */
+/* Reading content is static. Reduced motion also stops the logo loop in React. */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
   }
 }

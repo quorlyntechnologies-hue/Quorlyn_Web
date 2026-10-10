@@ -77,9 +77,9 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ease-precise",
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ease-precise",
         scrolled || menuOpen
-          ? "border-b border-line bg-void/80 backdrop-blur-xl"
+          ? "border-b border-line bg-void"
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -94,7 +94,7 @@ export function Navbar() {
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(
-                    "relative flex h-10 items-center rounded-sm px-3.5 text-sm transition-colors duration-150 ease-precise",
+                    "relative flex h-11 items-center rounded-sm px-3.5 text-sm transition-colors duration-150 ease-precise",
                     isActive(item.href) ? "text-fg" : "text-muted hover:text-fg",
                   )}
                 >
@@ -104,7 +104,7 @@ export function Navbar() {
                     aria-hidden="true"
                     className={cn(
                       "absolute inset-x-3.5 -bottom-px h-px transition-opacity duration-200",
-                      isActive(item.href) ? "bg-cyan opacity-100" : "opacity-0",
+                      isActive(item.href) ? "bg-accent opacity-100" : "opacity-0",
                     )}
                   />
                 </Link>
@@ -132,7 +132,7 @@ export function Navbar() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="-mr-2 flex size-11 items-center justify-center rounded-md text-fg transition-colors duration-150 hover:bg-white/5 lg:hidden"
+            className="-mr-2 flex size-11 items-center justify-center rounded-md text-fg transition-colors duration-150 hover:bg-fg/5 lg:hidden"
           >
             <span className="relative block h-3 w-5">
               <span
@@ -165,7 +165,7 @@ export function Navbar() {
           <Container className="flex min-h-full flex-col py-8">
             <nav aria-label="Mobile">
               <ul className="flex flex-col">
-                {nav.map((item, i) => (
+                {nav.map((item) => (
                   <li key={item.href} className="border-b border-line">
                     <Link
                       href={item.href}
@@ -176,9 +176,6 @@ export function Navbar() {
                         isActive(item.href) ? "text-fg" : "text-muted",
                       )}
                     >
-                      <span className="font-mono text-label text-subtle">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
                       {item.label}
                     </Link>
                   </li>

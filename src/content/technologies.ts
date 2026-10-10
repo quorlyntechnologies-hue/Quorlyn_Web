@@ -24,13 +24,13 @@ export const techGroups: TechGroup[] = [
   {
     id: "backend",
     label: "Backend",
-    note: "Boring where it should be boring. Explicit boundaries, typed contracts, and no framework magic in the domain layer.",
+    note: "Explicit system boundaries and typed interfaces keep application rules separate from framework code.",
     items: ["Node.js", "TypeScript", "Python", "FastAPI", "REST", "GraphQL"],
   },
   {
     id: "ai",
     label: "AI & ML",
-    note: "Model choice is an implementation detail behind an interface. What matters is the evaluation set and the fallback path.",
+    note: "Model integration includes evaluation examples, quality checks and a fallback when a request fails.",
     items: ["Claude API", "Vector search", "RAG pipelines", "LangGraph", "PyTorch", "ONNX"],
   },
   {
@@ -48,7 +48,7 @@ export const techGroups: TechGroup[] = [
   {
     id: "storage",
     label: "Databases & Storage",
-    note: "Relational until there is a measured reason not to be. Schema changes ship as migrations, never by hand.",
+    note: "We start with relational storage and evaluate other options when the workload needs them. Schema changes are versioned migrations.",
     items: ["PostgreSQL", "Redis", "SQLite", "S3", "Prisma", "Drizzle"],
   },
 ];

@@ -20,7 +20,7 @@ export function StatusBadge({ status }: { status: InquiryStatus }) {
 
   return (
     <span
-      className={`inline-flex shrink-0 items-center rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] uppercase ${tone}`}
+      className={`inline-flex shrink-0 items-center rounded-full border px-2.5 py-1 text-sm font-medium ${tone}`}
     >
       {label}
     </span>

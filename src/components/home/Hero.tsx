@@ -1,7 +1,7 @@
-import { HeroLattice } from "@/components/home/HeroLattice";
+import { LogoScene } from "@/components/brand/LogoScene";
 import { ArrowRight, ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
+import { Content } from "@/components/ui/Content";
 import { company } from "@/content/company";
 
 /** The four lines under the fold — what the company does, stated flatly. */
@@ -14,49 +14,26 @@ const capabilities = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-line">
-      {/* Visual ground. The mask keeps the lattice off the headline's column
-          on wide screens and pushes it below the copy on small ones. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 [mask-image:radial-gradient(130%_85%_at_60%_100%,#000_20%,transparent_80%)] lg:[mask-image:radial-gradient(66%_125%_at_84%_48%,#000_42%,transparent_80%)]"
-      >
-        <HeroLattice />
-      </div>
-
-      {/* A single violet bloom, low opacity, anchoring the composition's weight
-          to the right. This is the only ambient glow on the page. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/4 -right-32 hidden size-[36rem] rounded-full bg-violet/[0.07] blur-[120px] lg:block"
-      />
-
-      <Container className="relative flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-24 sm:py-28 lg:min-h-[46rem] lg:py-32">
-        <div className="max-w-4xl">
-          <Reveal>
-            <p className="flex items-center gap-3 font-mono text-label tracking-[0.2em] text-subtle uppercase">
-              <span aria-hidden="true" className="h-px w-8 bg-cyan/60" />
-              Software engineering — {company.location.locality}, {company.location.country}
-            </p>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h1 className="mt-7 text-display text-fg">
-              We build software
+    <section className="hero-section relative overflow-hidden border-b border-line">
+      <Container className="hero-layout relative">
+        <div className="hero-copy">
+          <Content>
+            <h1 className="hero-title text-fg">
+              Software your team
               <br />
-              that <span className="text-gradient-brand">holds up</span>.
+              can maintain.
             </h1>
-          </Reveal>
+          </Content>
 
-          <Reveal delay={160}>
-            <p className="mt-8 max-w-2xl text-lead text-muted">
-              Quorlyn Technology designs, builds and runs web, mobile and AI-enabled systems. We
-              start at the architecture, ship in slices you can use, and leave you with something
-              your team can keep changing after we are gone.
+          <Content>
+            <p className="mt-8 max-w-[54ch] text-lead text-muted">
+              We design, build and run web, mobile and AI-enabled systems from {company.location.locality}, {company.location.country}.
+              We plan the architecture, release working software in stages, and document
+              the code and infrastructure for your team.
             </p>
-          </Reveal>
+          </Content>
 
-          <Reveal delay={240}>
+          <Content>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <ButtonLink href="/contact" size="lg" className="group">
                 Start a project
@@ -66,19 +43,19 @@ export function Hero() {
                 See what we do
               </ButtonLink>
             </div>
-          </Reveal>
+          </Content>
         </div>
+        <LogoScene />
       </Container>
 
       {/* Capability strip — establishes scope immediately, without cards. */}
-      <div className="relative border-t border-line bg-void/40 backdrop-blur-sm">
+      <div className="capability-strip relative border-t border-line">
         <Container>
           <ul className="grid grid-cols-2 divide-line lg:grid-cols-4 lg:divide-x">
             {capabilities.map((item, i) => (
-              <Reveal
+              <Content
                 as="li"
                 key={item.label}
-                delay={i * 60}
                 className={
                   // Hairlines drawn per-cell so the 2-col mobile grid and the
                   // 4-col desktop grid both read as one continuous table.
@@ -87,11 +64,11 @@ export function Hero() {
                   (i < 2 ? " border-b lg:border-b-0" : "")
                 }
               >
-                <p className="font-display text-h4 text-fg">{item.label}</p>
-                <p className="mt-1.5 font-mono text-[11px] tracking-[0.1em] text-subtle uppercase">
+                <p className="text-h4 font-medium text-fg">{item.label}</p>
+                <p className="mt-1.5 text-sm text-subtle">
                   {item.detail}
                 </p>
-              </Reveal>
+              </Content>
             ))}
           </ul>
         </Container>

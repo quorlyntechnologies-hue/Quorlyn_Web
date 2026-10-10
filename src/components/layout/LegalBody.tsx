@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/ui/Reveal";
+import { Content } from "@/components/ui/Content";
 
 /**
  * Typographic wrapper for legal prose.
@@ -15,8 +15,8 @@ export function LegalBody({
   updated: string;
 }) {
   return (
-    <Reveal>
-      <p className="font-mono text-label tracking-[0.16em] text-subtle uppercase">{updated}</p>
+    <Content>
+      <p className="text-sm text-subtle">{updated}</p>
 
       <div
         className={
@@ -28,6 +28,6 @@ export function LegalBody({
       >
         {children}
       </div>
-    </Reveal>
+    </Content>
   );
 }

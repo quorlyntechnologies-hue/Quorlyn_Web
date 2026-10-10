@@ -25,7 +25,6 @@ export default function PrivacyPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Legal"
         title="Privacy"
         lead="Short, because this website does very little with data."
       />

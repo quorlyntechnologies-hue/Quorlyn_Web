@@ -22,7 +22,7 @@ export function SetupNotice() {
     <Container size="narrow" className="flex min-h-dvh flex-col justify-center py-20">
       <QuorlynMark size={40} />
 
-      <p className="mt-8 font-mono text-label tracking-[0.2em] text-subtle uppercase">
+      <p className="mt-8 text-sm font-medium text-subtle">
         Admin — not configured
       </p>
       <h1 className="mt-5 text-h2 text-fg">The backend is not connected yet</h1>
@@ -42,8 +42,8 @@ export function SetupNotice() {
             <span
               className={
                 item.set
-                  ? "font-mono text-[11px] tracking-[0.14em] text-success uppercase"
-                  : "font-mono text-[11px] tracking-[0.14em] text-danger uppercase"
+                  ? "text-sm font-medium text-success"
+                  : "text-sm font-medium text-danger"
               }
             >
               {item.set ? "set" : "missing"}
@@ -54,16 +54,16 @@ export function SetupNotice() {
 
       <ol className="mt-10 space-y-3 text-sm leading-relaxed text-muted">
         <li>
-          <span className="font-mono text-accent">01</span> — Create a free project at
+          <span className="text-sm text-accent tabular-nums">01</span> — Create a free project at
           supabase.com, then copy the URL and keys from Project Settings → API.
         </li>
         <li>
-          <span className="font-mono text-accent">02</span> — Put them in{" "}
+          <span className="text-sm text-accent tabular-nums">02</span> — Put them in{" "}
           <code className="font-mono text-fg">.env.local</code> (see{" "}
           <code className="font-mono text-fg">.env.example</code>).
         </li>
         <li>
-          <span className="font-mono text-accent">03</span> — Apply{" "}
+          <span className="text-sm text-accent tabular-nums">03</span> — Apply{" "}
           <code className="font-mono text-fg">supabase/migrations/</code> and create the first
           admin. Both steps are in <code className="font-mono text-fg">docs/BACKEND-SETUP.md</code>.
         </li>

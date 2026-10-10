@@ -126,8 +126,15 @@ so local development is unaffected. The honeypot and rate limits work either way
 5. Set `company.url` in `src/content/company.ts` to the production origin —
    canonical URLs, the sitemap, robots and Open Graph all derive from it.
 
-Analytics needs nothing: `@vercel/analytics` is cookieless and starts reporting
-on first deploy. Custom funnel events go through `src/lib/analytics.ts`.
+Enable Web Analytics in the Vercel project's Analytics dashboard before the next
+production deployment. The provider mounts only when `VERCEL_ENV=production`;
+Vercel supplies this system variable and the insights endpoint. Local builds
+and preview deployments do not initialize analytics. Custom funnel events go
+through `src/lib/analytics.ts` and are skipped when the provider is absent.
+Keep access to Vercel's system environment variables enabled in the project
+settings so `VERCEL_ENV` is available. See the official
+[Web Analytics setup](https://vercel.com/docs/analytics/quickstart) and
+[system environment variables](https://vercel.com/docs/environment-variables/system-environment-variables).
 
 ---
 

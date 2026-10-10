@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
+import { Content } from "@/components/ui/Content";
 import { Section } from "@/components/ui/SectionHeading";
 import { company, contact } from "@/content/company";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -12,25 +12,24 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with Quorlyn Technology. Tell us what you are building and what is in the way — we reply to every enquiry.",
+    "Start a project with Quorlyn Technology. Describe what you need to build or change, your constraints, and how to contact you.",
   alternates: { canonical: "/contact" },
   openGraph: { title: "Contact — Quorlyn Technology", url: "/contact" },
 };
 
-/** Sets expectations before the form, which measurably reduces abandonment
- *  more than any amount of encouragement after it. */
+/** Explain who reads the enquiry and what the next step involves. */
 const expectations = [
   {
     label: "Who reads this",
-    body: "An engineer, not a sales inbox. The reply comes from someone who could work on the project.",
+    body: "An engineer who could work on your project reads the enquiry and replies.",
   },
   {
     label: "Response time",
-    body: "Usually within two working days. If we are not the right fit, we will tell you that quickly.",
+    body: "We aim to reply within two working days.",
   },
   {
     label: "What happens next",
-    body: "A short call to test whether the problem and the approach match. No deck, no obligation.",
+    body: "We discuss the problem, any missing information, and whether a short scoping call would help.",
   },
 ];
 
@@ -38,9 +37,8 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Contact"
         title="Tell us what you are building"
-        lead="The more concrete the problem, the more useful our first reply will be. Rough ideas are welcome too — we will tell you what we would need to know to scope it."
+        lead="Describe what you need to build or change. An outline is enough to start; include a budget or deadline if you have one."
       />
 
       <Section>
@@ -55,8 +53,8 @@ export default function ContactPage() {
 
             <aside className="lg:col-span-5">
               <div className="space-y-8 lg:sticky lg:top-32">
-                <Reveal className="rounded-lg border border-line bg-surface/50 p-7">
-                  <h2 className="font-mono text-label tracking-[0.2em] text-subtle uppercase">
+                <Content className="border-t border-line pt-6">
+                  <h2 className="text-h4 text-fg">
                     Before you send
                   </h2>
                   <dl className="mt-6 space-y-6">
@@ -65,15 +63,15 @@ export default function ContactPage() {
                         key={item.label}
                         className="border-t border-line pt-5 first:border-0 first:pt-0"
                       >
-                        <dt className="font-display text-h4 text-fg">{item.label}</dt>
+                        <dt className="text-h4 font-medium text-fg">{item.label}</dt>
                         <dd className="mt-2 text-sm leading-relaxed text-muted">{item.body}</dd>
                       </div>
                     ))}
                   </dl>
-                </Reveal>
+                </Content>
 
-                <Reveal delay={100} className="rounded-lg border border-line p-7">
-                  <h2 className="font-mono text-label tracking-[0.2em] text-subtle uppercase">
+                <Content className="border-t border-line pt-6">
+                  <h2 className="text-h4 text-fg">
                     Where we are
                   </h2>
                   <address className="mt-5 space-y-1 text-sm leading-relaxed text-muted not-italic">
@@ -113,7 +111,7 @@ export default function ContactPage() {
                   <p className="mt-5 border-t border-line pt-5 text-sm leading-relaxed text-subtle">
                     We work with clients remotely across time zones. Kathmandu is UTC+5:45.
                   </p>
-                </Reveal>
+                </Content>
               </div>
             </aside>
           </div>

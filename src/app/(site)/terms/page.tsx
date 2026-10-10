@@ -21,7 +21,6 @@ export default function TermsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Legal"
         title="Terms of use"
         lead="These cover this website. The terms for any engagement are set out in that project's own agreement."
       />

@@ -31,12 +31,12 @@ export function AdminChrome({
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-line bg-void/85 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-line bg-void">
         <Container size="wide" className="flex h-16 items-center justify-between gap-6">
           <div className="flex items-center gap-8">
             <Link href="/admin" className="inline-flex items-center gap-2.5 rounded-sm">
               <QuorlynMark size={26} />
-              <span className="font-mono text-[11px] tracking-[0.22em] text-subtle uppercase">
+              <span className="text-sm font-medium text-subtle">
                 Admin
               </span>
             </Link>
@@ -70,7 +70,7 @@ export function AdminChrome({
               <p className="text-sm leading-tight text-fg">
                 {session.profile.full_name || session.email}
               </p>
-              <p className="font-mono text-[10px] tracking-[0.14em] text-subtle uppercase">
+              <p className="text-sm font-medium text-subtle">
                 {session.profile.role}
               </p>
             </div>

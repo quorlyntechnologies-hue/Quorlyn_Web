@@ -39,8 +39,8 @@ const allFieldsTouched: Record<EnquiryField, boolean> = {
 const fieldBase =
   "w-full rounded-md border bg-elevated/60 px-4 py-3 text-fg placeholder:text-subtle " +
   "transition-[border-color,box-shadow,background-color] duration-150 ease-precise " +
-  "hover:border-line-strong focus:border-cyan/50 focus:bg-elevated focus:outline-none " +
-  "focus:ring-2 focus:ring-cyan/25 disabled:opacity-50";
+  "hover:border-line-strong focus:border-accent focus:bg-elevated focus:outline-none " +
+  "focus:ring-2 focus:ring-accent/25 disabled:opacity-50";
 
 export function ContactForm() {
   const uid = useId().replace(/:/g, "");
@@ -60,7 +60,6 @@ export function ContactForm() {
   const [notConfigured, setNotConfigured] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [reference, setReference] = useState<string | null>(null);
-  const [emailed, setEmailed] = useState(true);
   const [started, setStarted] = useState(false);
 
   const setField = (field: EnquiryField, value: string) => {
@@ -129,7 +128,6 @@ export function ContactForm() {
 
       if (response.ok) {
         setReference(payload.reference ?? null);
-        setEmailed(payload.emailed !== false);
         setStatus("success");
         setValues(emptyEnquiry);
         setTouched({});
@@ -144,7 +142,11 @@ export function ContactForm() {
       // widget issue a fresh one before the visitor retries.
       if (payload.code === "turnstile") setTurnstileToken(null);
 
-      setFormError(payload.error ?? "Something went wrong. Please try again.");
+      setFormError(
+        payload.code === "not_configured"
+          ? "Your message has not been sent."
+          : payload.error ?? "Something went wrong. Please try again.",
+      );
       setStatus("error");
     } catch {
       setFormError("We could not reach the server. Check your connection and try again.");
@@ -156,26 +158,24 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="rounded-lg border border-cyan/25 bg-cyan/[0.04] p-8 text-center sm:p-12"
+        className="rounded-lg border border-accent/25 bg-accent/[0.04] p-8 text-center sm:p-12"
       >
         <QuorlynMark size={40} className="mx-auto" />
         <h2 className="mt-6 text-h3 text-fg">Inquiry received</h2>
 
         {reference && (
           <div className="mx-auto mt-6 inline-flex flex-col items-center rounded-md border border-line bg-void/60 px-6 py-4">
-            <span className="font-mono text-[11px] tracking-[0.18em] text-subtle uppercase">
+            <span className="text-sm text-subtle">
               Your reference
             </span>
-            <span className="mt-2 font-mono text-h4 tracking-[0.08em] text-accent">
+            <span className="mt-2 font-mono text-h4 text-accent">
               {reference}
             </span>
           </div>
         )}
 
         <p className="mx-auto mt-6 max-w-[48ch] leading-relaxed text-muted">
-          {emailed
-            ? "A confirmation is on its way to your inbox. An engineer will read this and reply personally, usually within two working days."
-            : "It is logged with our team. An engineer will read it and reply personally, usually within two working days."}
+          Your enquiry has been recorded. An engineer will read it; we aim to reply within two working days.
         </p>
 
         <Button
@@ -216,8 +216,7 @@ export function ContactForm() {
                 </>
               ) : (
                 <>
-                  The site owner needs to set <code className="font-mono text-fg">RESEND_API_KEY</code>{" "}
-                  and <code className="font-mono text-fg">CONTACT_INBOX</code> in the environment.
+                  Please try again later.
                 </>
               )}
             </p>
@@ -437,7 +436,7 @@ function Field({
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       onChange(name, e.target.value),
     onBlur: () => onBlur(name),
-    className: cn(fieldBase, error ? "border-danger/60" : "border-line"),
+    className: cn(fieldBase, error ? "border-danger" : "border-control"),
   };
 
   return (
@@ -501,7 +500,7 @@ function SelectField({
           className={cn(
             fieldBase,
             "appearance-none pr-10",
-            error ? "border-danger/60" : "border-line",
+            error ? "border-danger" : "border-control",
             !value && "text-subtle",
           )}
         >
@@ -547,12 +546,12 @@ function FieldLabel({
     <label htmlFor={htmlFor} className="flex items-baseline gap-2 text-sm font-medium text-fg">
       {label}
       {required && (
-        <span className="font-mono text-[10px] tracking-[0.1em] text-accent uppercase">
+        <span className="text-sm font-normal text-accent">
           Required
         </span>
       )}
       {optional && (
-        <span className="font-mono text-[10px] tracking-[0.1em] text-subtle uppercase">
+        <span className="text-sm font-normal text-subtle">
           Optional
         </span>
       )}

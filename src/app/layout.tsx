@@ -1,30 +1,25 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 
 import { company } from "@/content/company";
 import { organizationSchema } from "@/lib/schema";
 
 import "./globals.css";
 
-/* Three faces, each with a distinct job:
-   — Space Grotesk: display. Geometric, slightly technical letterforms that
-     echo the mark's construction.
-   — Inter: body and UI. Chosen for legibility at small sizes on dark ground.
-   — JetBrains Mono: indices, labels and technical annotation only. It carries
-     the "engineering document" signal that makes the third family worth its
-     weight; it is never used for reading copy.
-   All are self-hosted by next/font — no render-blocking request to Google. */
+/* IBM Plex Sans is the single interface family: headings, reading and controls.
+   The existing logo lettering remains separate. Monospace is limited to real
+   code/reference values and the brand subtitle. next/font self-hosts all files. */
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
   variable: "--font-space-grotesk",
   display: "swap",
 });
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-plex-sans",
   display: "swap",
 });
 
@@ -38,7 +33,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
   title: {
-    default: `${company.name} — Software engineering, built to last`,
+    default: `${company.name} — Web, mobile and AI engineering`,
     template: `%s — ${company.name}`,
   },
   description: company.descriptor,
@@ -48,13 +43,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: company.name,
     url: company.url,
-    title: `${company.name} — Software engineering, built to last`,
+    title: `${company.name} — Web, mobile and AI engineering`,
     description: company.descriptor,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${company.name} — Software engineering, built to last`,
+    title: `${company.name} — Web, mobile and AI engineering`,
     description: company.descriptor,
   },
   robots: {
@@ -66,8 +61,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05070b",
-  colorScheme: "dark",
+  themeColor: "#f7f7f4",
+  colorScheme: "light",
   // Zoom is never disabled — pinch-zoom is an accessibility requirement.
   width: "device-width",
   initialScale: 1,
@@ -75,7 +70,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${plexSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       {/* Deliberately bare: no navigation or footer here. The public chrome is
           applied by `(site)/layout.tsx`, so the admin segment can render its
           own without fighting a parent layout. */}
@@ -88,9 +83,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
 
-        {/* Cookieless, no consent banner required. Sends nothing outside
-            production; see src/lib/analytics.ts. */}
-        <Analytics />
+        {/* The insights endpoint is supplied by Vercel, not `next start`.
+            Keep local builds and preview deployments out of production data. */}
+        {process.env.VERCEL_ENV === "production" && <Analytics />}
       </body>
     </html>
   );

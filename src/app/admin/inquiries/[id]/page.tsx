@@ -59,14 +59,14 @@ export default async function InquiryDetailPage({
     <AdminChrome session={session} current="/admin/inquiries">
       <Link
         href="/admin/inquiries"
-        className="font-mono text-[11px] tracking-[0.14em] text-subtle uppercase hover:text-fg"
+        className="text-sm font-medium text-subtle hover:text-fg"
       >
         ← All inquiries
       </Link>
 
       <div className="mt-6 flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="font-mono text-label tracking-[0.18em] text-accent">{inquiry.reference}</p>
+          <p className="font-mono text-sm text-accent">{inquiry.reference}</p>
           <h1 className="mt-3 text-h2 text-fg">{inquiry.name}</h1>
           <p className="mt-2 text-muted">
             <a href={`mailto:${inquiry.email}`} className="text-accent hover:underline">
@@ -81,7 +81,7 @@ export default async function InquiryDetailPage({
       <div className="mt-10 grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <section>
-            <h2 className="font-mono text-[11px] tracking-[0.18em] text-subtle uppercase">
+            <h2 className="text-sm font-medium text-subtle">
               Project description
             </h2>
             {/* whitespace-pre-wrap preserves the visitor's paragraphing; the
@@ -129,7 +129,7 @@ export default async function InquiryDetailPage({
                       </span>
                       <time
                         dateTime={note.created_at}
-                        className="font-mono text-[10px] tracking-[0.1em] text-subtle uppercase"
+                        className="text-sm text-subtle"
                       >
                         {new Date(note.created_at).toLocaleString("en-GB", {
                           day: "numeric",
@@ -151,7 +151,7 @@ export default async function InquiryDetailPage({
 
         <aside className="lg:col-span-5">
           <div className="rounded-lg border border-line bg-surface/40 p-6">
-            <h2 className="font-mono text-[11px] tracking-[0.18em] text-subtle uppercase">
+            <h2 className="text-sm font-medium text-subtle">
               Status
             </h2>
             <form action={updateInquiryStatus} className="mt-4 flex flex-wrap gap-2">
@@ -188,14 +188,14 @@ export default async function InquiryDetailPage({
                   key={label}
                   className="flex flex-wrap gap-x-4 gap-y-1 border-b border-line px-5 py-3.5 last:border-b-0"
                 >
-                  <dt className="w-28 shrink-0 font-mono text-[10px] tracking-[0.14em] text-subtle uppercase">
+                  <dt className="w-28 shrink-0 text-sm font-medium text-subtle">
                     {label}
                   </dt>
                   <dd className="flex-1 text-sm break-words text-fg">{value}</dd>
                 </div>
               ))}
             <div className="flex flex-wrap gap-x-4 gap-y-1 px-5 py-3.5">
-              <dt className="w-28 shrink-0 font-mono text-[10px] tracking-[0.14em] text-subtle uppercase">
+              <dt className="w-28 shrink-0 text-sm font-medium text-subtle">
                 Received
               </dt>
               <dd className="flex-1 text-sm text-fg">

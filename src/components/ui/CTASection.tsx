@@ -1,7 +1,6 @@
-import { QuorlynMark } from "@/components/brand/QuorlynMark";
 import { ArrowRight, ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
+import { Content } from "@/components/ui/Content";
 
 /**
  * The closing conversion band. Used at the foot of every page, so its copy is
@@ -9,15 +8,13 @@ import { Reveal } from "@/components/ui/Reveal";
  * same question as one arriving from the homepage.
  */
 export function CTASection({
-  eyebrow = "Next step",
-  title = "Have something worth building?",
-  body = "Tell us what you are trying to make work. If we are not the right team for it, we will say so — and point you at who might be.",
-  primaryLabel = "Start a conversation",
+  title = "Tell us about your project",
+  body = "Describe what you need to build or change, what is getting in the way, and any budget or deadline you have in mind.",
+  primaryLabel = "Start a project",
   primaryHref = "/contact",
   secondaryLabel,
   secondaryHref,
 }: {
-  eyebrow?: string;
   title?: string;
   body?: string;
   primaryLabel?: string;
@@ -26,31 +23,18 @@ export function CTASection({
   secondaryHref?: string;
 }) {
   return (
-    <section className="relative overflow-hidden">
-      <div aria-hidden="true" className="bg-lattice absolute inset-0 opacity-40" />
-      <div aria-hidden="true" className="bg-cta-bloom absolute inset-0" />
-
+    <section className="closing-cta relative overflow-hidden border-t border-line">
       <Container className="relative">
-        <div className="flex flex-col items-center py-24 text-center sm:py-28 lg:py-36">
-          <Reveal>
-            <QuorlynMark size={44} />
-          </Reveal>
+        <div className="cta-content flex flex-col items-start py-24 sm:py-28 lg:py-32">
+          <Content>
+            <h2 className="max-w-[22ch] text-h1 text-fg">{title}</h2>
+          </Content>
 
-          <Reveal delay={70}>
-            <p className="mt-8 font-mono text-label tracking-[0.2em] text-subtle uppercase">
-              {eyebrow}
-            </p>
-          </Reveal>
-
-          <Reveal delay={130}>
-            <h2 className="mt-5 max-w-[18ch] text-h1 text-fg">{title}</h2>
-          </Reveal>
-
-          <Reveal delay={190}>
+          <Content>
             <p className="mt-6 max-w-[56ch] text-lead text-muted">{body}</p>
-          </Reveal>
+          </Content>
 
-          <Reveal delay={250}>
+          <Content>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <ButtonLink href={primaryHref} size="lg" className="group">
                 {primaryLabel}
@@ -62,7 +46,7 @@ export function CTASection({
                 </ButtonLink>
               )}
             </div>
-          </Reveal>
+          </Content>
         </div>
       </Container>
     </section>

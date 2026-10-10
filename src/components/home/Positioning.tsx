@@ -1,5 +1,5 @@
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
+import { Content } from "@/components/ui/Content";
 import { Section } from "@/components/ui/SectionHeading";
 
 /** Sits directly under the hero: what the company is, in one paragraph, with
@@ -11,7 +11,7 @@ const commitments = [
   },
   {
     label: "Visibility",
-    body: "Running software in a real environment from the first week onward.",
+    body: "Working software released in stages, with progress you can review.",
   },
   {
     label: "Ownership",
@@ -25,54 +25,42 @@ export function Positioning() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <Reveal>
-              <p className="flex items-center gap-3 font-mono text-label tracking-[0.2em] text-subtle uppercase">
-                <span className="text-accent">00</span>
-                What we are
-              </p>
-            </Reveal>
+            <Content>
+              <h2 className="text-h2 text-fg">
+                From architecture to the next release
+              </h2>
+            </Content>
 
-            <Reveal delay={80}>
-              {/* Deliberately set at h2 size rather than display: this is a
-                  paragraph doing a heading's job, and it must stay readable. */}
-              <p className="mt-6 font-display text-h2 leading-[1.18] text-fg">
-                A small engineering team that takes a system from the first
-                architecture decision to the release after launch.
-              </p>
-            </Reveal>
-
-            <Reveal delay={140}>
+            <Content>
               <div className="mt-8 space-y-5 text-lead text-muted">
                 <p>
-                  Most software does not fail at launch. It fails eighteen months later, when a
-                  change that should take a day takes a quarter, and nobody left on the team knows
-                  why the system is shaped the way it is.
+                  A product needs work after its first release: new features, changing data,
+                  deployment updates and fixes. Your team needs to understand how it was built.
                 </p>
                 <p>
-                  We build for that moment. Typed boundaries, migrations, tests where they earn
-                  their keep, and decisions written down while the reasoning is still fresh — so the
-                  second year of a product costs less than the first.
+                  We document technical decisions, version database changes, and test the parts
+                  a change could break. You keep the code, infrastructure and accounts.
                 </p>
               </div>
-            </Reveal>
+            </Content>
           </div>
 
           <div className="lg:col-span-5 lg:pt-14">
-            <Reveal delay={200}>
-              <div className="rounded-lg border border-line bg-surface/50 p-6 sm:p-8">
-                <p className="font-mono text-label tracking-[0.2em] text-subtle uppercase">
+            <Content>
+              <div className="border-t border-line pt-6">
+                <h3 className="text-h4 text-fg">
                   How we work
-                </p>
+                </h3>
                 <dl className="mt-6 space-y-6">
                   {commitments.map((item) => (
                     <div key={item.label} className="border-t border-line pt-5 first:border-0 first:pt-0">
-                      <dt className="font-display text-h4 text-fg">{item.label}</dt>
+                      <dt className="text-h4 font-medium text-fg">{item.label}</dt>
                       <dd className="mt-2 text-sm leading-relaxed text-muted">{item.body}</dd>
                     </div>
                   ))}
                 </dl>
               </div>
-            </Reveal>
+            </Content>
           </div>
         </div>
       </Container>

@@ -3,11 +3,9 @@ import type { MetadataRoute } from "next";
 import { company } from "@/content/company";
 import { projects } from "@/content/projects";
 
-/** Case study URLs are derived from the content array, so publishing one adds
+/** Published project URLs are derived from the content array, so adding one adds
  *  it to the sitemap without a second edit. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   const staticRoutes: MetadataRoute.Sitemap = (
     [
       { url: `${company.url}/`, priority: 1, changeFrequency: "monthly" },
@@ -18,11 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { url: `${company.url}/privacy`, priority: 0.2, changeFrequency: "yearly" },
       { url: `${company.url}/terms`, priority: 0.2, changeFrequency: "yearly" },
     ] satisfies MetadataRoute.Sitemap
-  ).map((route) => ({ ...route, lastModified }));
+  );
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${company.url}/work/${project.slug}`,
-    lastModified,
     priority: 0.7,
     changeFrequency: "yearly",
   }));

@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
       <div className="mx-auto w-full max-w-md">
         <QuorlynMark size={38} />
 
-        <p className="mt-8 font-mono text-label tracking-[0.2em] text-subtle uppercase">
+        <p className="mt-8 text-sm font-medium text-subtle">
           Quorlyn Admin
         </p>
         <h1 className="mt-4 text-h2 text-fg">Sign in</h1>

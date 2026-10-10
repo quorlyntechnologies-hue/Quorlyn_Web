@@ -79,7 +79,7 @@ export default async function AdminDashboardPage({
     <AdminChrome session={session} current="/admin">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="font-mono text-label tracking-[0.2em] text-subtle uppercase">Dashboard</p>
+          <p className="text-sm font-medium text-subtle">Dashboard</p>
           <h1 className="mt-3 text-h2 text-fg">
             {session.profile.full_name
               ? `Afternoon, ${session.profile.full_name.split(" ")[0]}`
@@ -111,7 +111,7 @@ export default async function AdminDashboardPage({
           <dl className="mosaic mt-10 grid overflow-hidden rounded-lg border border-line sm:grid-cols-2 lg:grid-cols-4">
             {tiles.map((tile) => (
               <div key={tile.label} className="bg-void p-6">
-                <dt className="font-mono text-[11px] tracking-[0.16em] text-subtle uppercase">
+                <dt className="text-sm font-medium text-subtle">
                   {tile.label}
                 </dt>
                 <dd className="mt-3 font-display text-[2.25rem] leading-none text-fg">
@@ -127,7 +127,7 @@ export default async function AdminDashboardPage({
               <h2 className="text-h3 text-fg">Latest inquiries</h2>
               <Link
                 href="/admin/inquiries"
-                className="font-mono text-[11px] tracking-[0.14em] text-accent uppercase hover:opacity-80"
+                className="text-sm font-medium text-accent hover:opacity-80"
               >
                 View all
               </Link>
@@ -145,7 +145,7 @@ export default async function AdminDashboardPage({
                       href={`/admin/inquiries/${inquiry.id}`}
                       className="flex flex-wrap items-center gap-x-5 gap-y-2 px-5 py-4 transition-colors duration-150 hover:bg-white/[0.03]"
                     >
-                      <span className="font-mono text-[11px] text-subtle">{inquiry.reference}</span>
+                      <span className="font-mono text-sm text-subtle">{inquiry.reference}</span>
                       <span className="flex-1 text-fg">
                         {inquiry.name}
                         {inquiry.company && (

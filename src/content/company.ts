@@ -1,9 +1,8 @@
 /**
  * Single source of truth for company facts.
  *
- * RULE: everything in `company` is a verified fact. Anything not yet confirmed
- * lives in `pending` and is rendered by the UI as an explicit placeholder —
- * never as a claim. Do not move a value out of `pending` until it is real.
+ * Publish only supplied company facts. Unconfirmed contact details and social
+ * accounts stay empty and are omitted from public pages.
  */
 
 export const company = {
@@ -15,7 +14,7 @@ export const company = {
 
   /** One line, used in the footer, meta description and JSON-LD. */
   descriptor:
-    "A software engineering company building web, mobile and AI-enabled products — from architecture through to production.",
+    "A software engineering company in Kathmandu building web, mobile and AI-enabled products, from architecture to production.",
 
   founded: "2026",
 
@@ -28,8 +27,8 @@ export const company = {
 } as const;
 
 /**
- * Not yet supplied. The UI reads these and renders a labelled placeholder when
- * a value is empty, so the site is never blocked on them and never invents them.
+ * Not yet supplied. The UI omits empty contact values and links to the enquiry
+ * form; it does not invent an address, phone number or email.
  *
  * Populate via .env.local (see .env.example) or by editing this file directly.
  */

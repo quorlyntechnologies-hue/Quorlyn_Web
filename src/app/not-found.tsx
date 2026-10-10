@@ -19,15 +19,10 @@ export default function NotFound() {
   return (
     <SiteChrome>
       <section className="relative overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="bg-lattice mask-fade-b absolute inset-0 opacity-40"
-        />
-
         <Container className="relative flex min-h-[70dvh] flex-col items-center justify-center py-32 text-center">
           <QuorlynMark size={44} />
 
-          <p className="mt-8 font-mono text-label tracking-[0.24em] text-subtle uppercase">
+          <p className="mt-8 text-sm font-medium text-subtle">
             Error 404
           </p>
 

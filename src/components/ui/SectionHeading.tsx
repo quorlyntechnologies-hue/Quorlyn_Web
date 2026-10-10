@@ -1,25 +1,14 @@
-import { Reveal } from "@/components/ui/Reveal";
+import { Content } from "@/components/ui/Content";
 import { cn } from "@/lib/cn";
 
-/**
- * Every section opens the same way: an indexed mono eyebrow above a display
- * heading, with an optional lead paragraph held to a reading measure.
- *
- * The index (`01`, `02`, …) is the site's structural signature — it reads as
- * technical documentation rather than marketing, and it gives long scrolling
- * pages a sense of position.
- */
+/** A heading and optional explanation, without a duplicated section caption. */
 export function SectionHeading({
-  index,
-  eyebrow,
   title,
   lead,
   align = "left",
   as: Tag = "h2",
   className,
 }: {
-  index?: string;
-  eyebrow: string;
   title: React.ReactNode;
   lead?: React.ReactNode;
   align?: "left" | "center";
@@ -27,20 +16,10 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <Reveal className={cn(align === "center" && "flex flex-col items-center text-center", className)}>
-      <div
-        className={cn(
-          "flex items-center gap-3 font-mono text-label tracking-[0.2em] uppercase",
-          align === "center" && "justify-center",
-        )}
-      >
-        {index && <span className="text-accent">{index}</span>}
-        <span className="text-subtle">{eyebrow}</span>
-      </div>
-
+    <Content className={cn(align === "center" && "flex flex-col items-center text-center", className)}>
       <Tag
         className={cn(
-          "mt-5 text-h2 text-fg",
+          "text-h2 text-fg",
           align === "left" && "max-w-[19ch] sm:max-w-[24ch]",
           align === "center" && "max-w-[22ch]",
         )}
@@ -53,7 +32,7 @@ export function SectionHeading({
           {lead}
         </p>
       )}
-    </Reveal>
+    </Content>
   );
 }
 
@@ -74,7 +53,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "scroll-mt-24 py-20 sm:py-24 lg:py-32",
+        "site-section scroll-mt-24 py-20 sm:py-24 lg:py-28",
         tone === "sunken" && "bg-surface/40",
         className,
       )}

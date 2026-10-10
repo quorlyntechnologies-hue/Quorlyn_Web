@@ -26,11 +26,11 @@ export const services: Service[] = [
     index: "01",
     title: "Product Engineering",
     summary:
-      "End-to-end delivery of web and mobile products — architecture, build, release and the iteration after.",
+      "Web and mobile applications, including architecture, development, release and ongoing changes.",
     problem:
-      "An idea is validated but there is no team to build it, or an existing build has stalled against its own architecture.",
+      "You have a product idea to build, or an existing application that has become difficult to change.",
     approach:
-      "We start from the domain rather than the framework: model the data, define the boundaries, then choose the stack that fits. Work ships in vertical slices, so something real is running early and every week after.",
+      "We model the data and define the system boundaries before choosing the stack. We release working features in stages so you can review them as the product develops.",
     deliverables: [
       "Technical architecture and data model",
       "Production web or mobile application",
@@ -45,11 +45,11 @@ export const services: Service[] = [
     index: "02",
     title: "AI Engineering",
     summary:
-      "Language models, retrieval and automation wired into real systems — scoped to what measurably works.",
+      "Language models, document retrieval and automation, with evaluation and fallbacks built into the system.",
     problem:
-      "There is a plausible AI use case, but no clear path from demo to something dependable enough to put in front of users.",
+      "You have an AI use case or prototype and need to understand its quality, cost and behaviour before putting it in front of users.",
     approach:
-      "We scope to a task with a measurable success criterion, build an evaluation set before the feature, and keep the model behind an interface we can swap. Where a deterministic system is cheaper and more reliable, we say so.",
+      "We agree a task and success criteria, build evaluation examples, and integrate the model behind a replaceable interface. We compare the result with simpler approaches and include a fallback for failures.",
     deliverables: [
       "Use-case scoping and feasibility assessment",
       "Retrieval and context pipeline",
@@ -64,11 +64,11 @@ export const services: Service[] = [
     index: "03",
     title: "Platform & Cloud",
     summary:
-      "The infrastructure underneath: deployment, observability, cost control and the ability to change safely.",
+      "Deployment pipelines, monitoring and infrastructure management, with a review of running costs.",
     problem:
-      "Deploys are manual and tense, incidents are diagnosed by guesswork, and nobody can say what the infrastructure actually costs.",
+      "Deployments are manual, incidents are difficult to trace, or infrastructure costs are hard to explain.",
     approach:
-      "Infrastructure as code from the first environment, with observability treated as a feature rather than an add-on. We optimise for a team's ability to change things safely, not for a diagram.",
+      "We define infrastructure in code and set up automated deployment, logs, metrics and alerts. We review environment configuration, secrets and resource sizing with the team that will run the system.",
     deliverables: [
       "Infrastructure as code",
       "Automated build and deployment pipeline",
@@ -83,11 +83,11 @@ export const services: Service[] = [
     index: "04",
     title: "Data Engineering",
     summary:
-      "Pipelines, warehouses and interfaces that turn operational data into something a team can act on.",
+      "Data pipelines, warehouse models, quality checks and reporting interfaces.",
     problem:
-      "The data exists across several systems, but answering a question takes days and two people disagree on the number.",
+      "Data is spread across systems, reports take manual work, or teams use different definitions for the same metric.",
     approach:
-      "One definition per metric, versioned with the code that computes it. We build the pipeline to be re-runnable and the model to be explainable before building anything that visualises it.",
+      "We agree metric definitions, model the data and build repeatable ingestion and transformation pipelines. Quality checks and monitoring accompany the dashboards or reports.",
     deliverables: [
       "Ingestion and transformation pipelines",
       "Warehouse schema and metric definitions",
@@ -101,11 +101,11 @@ export const services: Service[] = [
     index: "05",
     title: "Interface Design & Engineering",
     summary:
-      "Design systems and front-end implementation held to the same standard as the systems behind them.",
+      "Design systems and responsive interfaces, with accessibility checks and reusable components.",
     problem:
       "The product works but feels unfinished, inconsistent between screens, or unusable for part of its audience.",
     approach:
-      "Design decisions become tokens and components rather than static files, so the interface stays consistent as it grows. Accessibility and responsive behaviour are acceptance criteria, not a later pass.",
+      "We turn design decisions into shared tokens and components, implement the interface, and check it across screen sizes. Keyboard access, contrast and other accessibility requirements are part of acceptance.",
     deliverables: [
       "Design tokens and component library",
       "Responsive interface implementation",
@@ -119,11 +119,11 @@ export const services: Service[] = [
     index: "06",
     title: "Technical Consulting",
     summary:
-      "Architecture review, technology selection and a written path forward when a decision is expensive to reverse.",
+      "Architecture and code reviews, technology selection, and written migration or remediation plans.",
     problem:
-      "A rebuild, a migration or a platform choice is on the table and the cost of getting it wrong is measured in quarters.",
+      "You are considering a rebuild, migration or platform change and need a technical review before committing to it.",
     approach:
-      "We review the system and the constraints around it — team, budget, timeline — and produce a written recommendation with the trade-offs stated plainly, including the option of doing nothing.",
+      "We review the codebase and the team's budget, timeline and constraints. You receive a written recommendation with options, trade-offs, an effort estimate and an order for the work, including whether a change is needed at all.",
     deliverables: [
       "Architecture and codebase review",
       "Technology selection with trade-offs",

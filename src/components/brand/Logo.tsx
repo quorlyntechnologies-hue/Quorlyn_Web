@@ -23,14 +23,15 @@ export function Logo({
   const markSize = size === "sm" ? 26 : 32;
 
   // Wordmark weight and tracking follow the official lockup: QUORLYN light and
-  // widely tracked in near-white, TECHNOLOGY beneath it in the brand gradient.
+  // widely tracked, TECHNOLOGY beneath it in the brand gradient. Text color
+  // adapts to the page ground; the official symbol pixels are unchanged.
   const content = (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <QuorlynMark size={markSize} priority />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display font-normal text-brand-white",
+            "font-brand font-normal text-wordmark",
             size === "sm" ? "text-[15px] tracking-[0.26em]" : "text-[17px] tracking-[0.28em]",
           )}
         >
